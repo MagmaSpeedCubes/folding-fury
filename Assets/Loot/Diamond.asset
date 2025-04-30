@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d929c9907f8764a0590fdcd776c8d969, type: 3}
+  m_Name: Diamond
+  m_EditorClassIdentifier: 
+  lootSprite: {fileID: 6586461156150141773, guid: 585d3c0a235ac4eccbed837b2ed2c1c8, type: 3}
+  lootName: Diamond
+  dropChance: 0

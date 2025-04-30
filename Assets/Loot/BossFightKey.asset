@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d929c9907f8764a0590fdcd776c8d969, type: 3}
+  m_Name: BossFightKey
+  m_EditorClassIdentifier: 
+  lootSprite: {fileID: 2815641891236086486, guid: c34fb91c9610b4d8980c02cd7d8e8a24, type: 3}
+  lootName: Boss Fight Key
+  dropChance: 0
