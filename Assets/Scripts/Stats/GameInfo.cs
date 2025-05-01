@@ -35,6 +35,7 @@ public class GameInfo
     //-1 = mod selector
     //-2 = credits
     //-3 = prologue
+    //-4 = game over/stage complete
     // card upgrades
     // forms
     // achievements
@@ -47,5 +48,89 @@ public class GameInfo
     public static int DiamondsCollected = 0;
 
     public static float DamageTaken = 0f;
+
+    public static void Reset(){
+        Score = 0f;
+        ScoreMultiplier = 1f;
+        LootMultiplier = 1f;
+
+
+        numEnemies = 0;
+        SpawnRate = 1f;
+        AngryRate = 0f;
+        EnragedRate = 0f;
+
+        EnemyTransparency = 0f;
+        EnemyHealth = 1f;
+        EnemyRegen = 0f;
+        EnemySize = 1f;
+        EnemySpeed = 1f;
+
+        EnemyDamage = 1f;
+
+    
+        //stationary enemies will get an attack rate boost
+        BossFight = false;
+        BossFightStart = 0f;
+        
+        GameMode = 0;
+        SelectedLevel = 0;
+        SelectedModifier = 0;
+
+        NumLevels = 8;
+
+        EnemiesKilled = 0;
+        EnemiesSpawned = 0;
+
+        DiamondsCollected = 0;
+
+        DamageTaken = 0f;
+    }
+
+    public static void ResetLevel(){
+        Score = 0f;
+        ScoreMultiplier = 1f;
+        LootMultiplier = 1f;
+
+
+        numEnemies = 0;
+        SpawnRate = 1f;
+        AngryRate = 0f;
+        EnragedRate = 0f;
+
+        EnemyTransparency = 0f;
+        EnemyHealth = 1f;
+        EnemyRegen = 0f;
+        EnemySize = 1f;
+        EnemySpeed = 1f;
+
+        EnemyDamage = 1f;
+
+    
+        //stationary enemies will get an attack rate boost
+        BossFight = false;
+        BossFightStart = 0f;
+
+        EnemiesKilled = 0;
+        EnemiesSpawned = 0;
+
+        DiamondsCollected = 0;
+
+        DamageTaken = 0f;
+    }
+
+    public static void ResetEnemy(){
+        SpawnRate = 1f;
+        AngryRate = 0f;
+        EnragedRate = 0f;
+
+        EnemyTransparency = 0f;
+        EnemyHealth = 1f;
+        EnemyRegen = 0f;
+        EnemySize = 1f;
+        EnemySpeed = 1f;
+
+        EnemyDamage = 1f;
+    }
 
 }

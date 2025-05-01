@@ -24,16 +24,16 @@ public class EndStage : MonoBehaviour
         }
     }
 
-    public void Start(){
-        Instance.canvasGroup.alpha = 0f;
-    }
 
 
 
     public static void CompleteStage(bool win){
         
+        int oldHighScore = getCurrentScore(GameInfo.GameMode, PlayerInfo.Modifier);
+        int level = GameInfo.GameMode;
+        int mod = PlayerInfo.Modifier;
         CameraMoveUp.inLevel = false;
-        Instance.canvasGroup.alpha = 1f;
+        GameInfo.GameMode = -4;
         if(win){
             Instance.mainText.text = "Stage Complete";
         }else{
@@ -41,7 +41,7 @@ public class EndStage : MonoBehaviour
         }
 
         
-        GameInfo.GameMode = -999;
+        
 
         Instance.iscoreText.text = "Score: " + GameInfo.Score;
 
@@ -61,9 +61,16 @@ public class EndStage : MonoBehaviour
         Instance.diamondText.text = "Diamonds Collected: " + GameInfo.DiamondsCollected + " /10 +" + diamondBonus;
         Instance.fscoreText.text = "Score: " + GameInfo.Score;
 
-        
 
-        Instance.fscoreText.text = "Final Score: " + GameInfo.Score;
+        
+        if(GameInfo.Score > oldHighScore){
+            Instance.fscoreText.text = "New Record: ";
+            saveRecord(level, mod, (int)GameInfo.Score);
+        }else{
+            Instance.fscoreText.text = "Final Score: ";
+        }
+
+        Instance.fscoreText.text += GameInfo.Score;
 
         
 
@@ -85,9 +92,28 @@ public class EndStage : MonoBehaviour
         
     }
 
-    public static void getCurrentScore(int level, int modifier){
+    public static int getCurrentScore(int level, int modifier){
+        
         int[] scoreArray;
+        if(modifier < 0){
+            scoreArray = AvatarInfo.ReversedHighScores[level];
+        }else{
+            scoreArray = AvatarInfo.HighScores[level];
+        }
 
+        return scoreArray[Math.Abs(modifier)];
 
+    }
+
+    public static void saveRecord(int level, int modifier, int score){
+
+        if(modifier < 0){
+            AvatarInfo.ReversedHighScores[level][-modifier] = score;
+        }else{
+            AvatarInfo.HighScores[level][modifier] = score;
+        }
+        SaveSystem.SaveData();
+
+        
     }
 }

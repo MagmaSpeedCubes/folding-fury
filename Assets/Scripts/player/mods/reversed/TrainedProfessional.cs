@@ -26,18 +26,24 @@ public class TrainedProfessional : MonoBehaviour
     }
 
     public void Update(){
-        if(PlayerInfo.MovementSpeed > 0.4){
-            PlayerInfo.MovementSpeed -= 0.001f*Time.deltaTime;
-            if(PlayerInfo.MovementSpeed < 0.4){
-                PlayerInfo.MovementSpeed = 0.4f;
+        if(GameInfo.GameMode < 1 && GameInfo.GameMode != -3){
+            active = false;
+        }
+        if(active){
+            if(PlayerInfo.MovementSpeed > 0.4){
+                PlayerInfo.MovementSpeed -= 0.001f*Time.deltaTime;
+                if(PlayerInfo.MovementSpeed < 0.4){
+                    PlayerInfo.MovementSpeed = 0.4f;
+                }
+            }
+            if(GameInfo.EnemyDamage < 5){
+                GameInfo.EnemyDamage += 0.004f*Time.deltaTime;
+                if(GameInfo.EnemyDamage > 5){
+                    GameInfo.EnemyDamage = 5f;
+                }
             }
         }
-        if(GameInfo.EnemyDamage < 5){
-            GameInfo.EnemyDamage += 0.004f*Time.deltaTime;
-            if(GameInfo.EnemyDamage > 5){
-                GameInfo.EnemyDamage = 5f;
-            }
-        }
+
 
     }
 

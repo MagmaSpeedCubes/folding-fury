@@ -37,12 +37,8 @@ public class PlayerHealth : MonoBehaviour
         PlayerInfo.CurrentHealth -= damageAmount;
         GameInfo.DamageTaken += damageAmount;
 
-        if (PlayerInfo.CurrentHealth <= 0){
-            if(GameInfo.GameMode == -3){
-                PlayerInfo.CurrentHealth = 1f;
-            }else{
-                Die();
-            }
+        if (PlayerInfo.CurrentHealth <= 0 && GameInfo.GameMode != -3){
+            Die();
             
         }
         PlayDamageSound();
@@ -50,7 +46,7 @@ public class PlayerHealth : MonoBehaviour
     private void Die(){
         PlayDeathSound();
         EndStage.CompleteStage(false);
-        Destroy(gameObject);
+
     }
     private void Update(){
         if (PlayerInfo.CurrentHealth < PlayerInfo.MaxHealth){
@@ -59,6 +55,7 @@ public class PlayerHealth : MonoBehaviour
         if (PlayerInfo.CurrentHealth > PlayerInfo.MaxHealth){
             PlayerInfo.CurrentHealth = PlayerInfo.MaxHealth;
         }
+
     }
 
     private void PlayDeathSound()

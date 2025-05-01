@@ -33,6 +33,9 @@ public class Half : MonoBehaviour{
             }
 
         }
+        if(GameInfo.GameMode < 1){
+            Half.active = false;
+        }
     }
 
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Lights : MonoBehaviour{
     [SerializeField] private CanvasGroup cg;
     private Coroutine ct;
-    private static bool active;
+    public static bool active;
 
     public static Lights Instance {get; private set;}
 
@@ -44,7 +44,9 @@ public class Lights : MonoBehaviour{
                 canvasGroup.alpha = Mathf.Clamp01(1f - (elapsedTime / fadeOutTime)); // Gradually decrease alpha
                 yield return null;
             }
-
+            if(GameInfo.GameMode < 1 && GameInfo.GameMode != -3){
+                Lights.active = false;
+            }
             yield return new WaitForSeconds(holdTime);
         }
 

@@ -25,23 +25,33 @@ public class EnemySpawner : MonoBehaviour
     private bool isSpawning = false; // Tracks if the spawner is currently active
     private bool hasActivated = false; // Tracks if the spawner has already activated for the current condition
 
+    private Coroutine spawnCoroutine; // Tracks the currently running SpawnClusters coroutine
+
     void Update()
     {
         // Check if the spawner should activate
         if (GameInfo.GameMode == level && Timer.GetTime() >= activationTime && !hasActivated)
         {
             hasActivated = true; // Prevent multiple activations for the same condition
-            StartCoroutine(SpawnClusters());
+            spawnCoroutine = StartCoroutine(SpawnClusters());
         }
 
-        // Reset the activation flag if the GameMode changes
+        // Stop spawning and reset the activation flag if the GameMode changes
         if (GameInfo.GameMode != level)
         {
             hasActivated = false;
-        }
 
-        
+            // Stop the currently running coroutine if it exists
+            if (spawnCoroutine != null)
+            {
+                StopCoroutine(spawnCoroutine);
+                spawnCoroutine = null; // Clear the reference
+            }
+
+            isSpawning = false; // Ensure the spawner is marked as inactive
+        }
     }
+
 
     private IEnumerator SpawnClusters()
     {

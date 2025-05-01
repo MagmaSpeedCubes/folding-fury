@@ -12,6 +12,7 @@ public class Expert
         GameInfo.SpawnRate *= 1.25f;
         GameInfo.AngryRate += 0.1f;
         PlayerInfo.MissRate += 0.03f;
-        PlayerInfo.RegenRate = 0;
+        PlayerInfo.RegenRate *= 0f;
+        Debug.Log("Expert");
     }
 }

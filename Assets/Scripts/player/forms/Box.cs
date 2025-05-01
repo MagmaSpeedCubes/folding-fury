@@ -24,7 +24,6 @@ public class Box
         Mods.Reactivate();
     }
     public static float getDelay(){
-        PlayerInfo.Reset();
-        return PlayerInfo.FoldTime * 1f;
+return PlayerInfo.getOriginalDelay() * 1f;
     }
 }

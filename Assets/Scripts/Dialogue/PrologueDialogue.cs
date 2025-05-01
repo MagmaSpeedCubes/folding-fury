@@ -27,7 +27,7 @@ public class PrologueDialogue : MonoBehaviour
 
             if (Times.Length > index && Timer.GetTime() > Times[index] && !isDialogueRunning)
             {
-                if(index == 2){
+                if(index == 3){
                     Debug.Log("Activate Blackout");
                     PlayerInfo.Modifier = -3;
                     Mods.Reactivate();
@@ -35,6 +35,17 @@ public class PrologueDialogue : MonoBehaviour
                 index += 1;
                 StartCoroutine(ShowNextLineWrapper());
                 
+            }
+            if((Timer.GetTime()>145 && !GameInfo.BossFight)){
+                Lights.active = false;
+                Blackout.deactivate();
+                GameInfo.BossFight = true;
+            }
+
+            if(PlayerInfo.CurrentHealth < 0){
+                GameInfo.GameMode = 0;
+                GameInfo.BossFight = false;
+                CameraMoveUp.inLevel = false;
             }
         }
     }

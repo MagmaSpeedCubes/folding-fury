@@ -24,7 +24,6 @@ public class Fan
         Mods.Reactivate();
     }
     public static float getDelay(){
-        PlayerInfo.Reset();
-        return PlayerInfo.FoldTime * 0.2f;
+        return PlayerInfo.getOriginalDelay() * 0.2f;
     }
 }

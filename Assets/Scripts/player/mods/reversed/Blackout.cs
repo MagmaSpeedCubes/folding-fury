@@ -22,6 +22,12 @@ public class Blackout : MonoBehaviour
         PlayerInfo.RegenRate *= 0.5f; //50% regen rate
     }
 
+    public void Update(){
+        if(GameInfo.GameMode < 1 && GameInfo.GameMode != -3){
+            removeCover();
+        }
+    }
+
     public static void deactivate(){
         Instance.removeCover();
     }

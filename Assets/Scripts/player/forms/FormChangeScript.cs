@@ -16,7 +16,7 @@ public class FormChangeScript : MonoBehaviour
     [SerializeField] private List<Sprite> FortuneTellerFold;
     
     public float delay;
-
+    private bool canFormChange = true;
     private Coroutine animation;
 
     private List<Sprite> exitSprite;
@@ -31,22 +31,32 @@ public class FormChangeScript : MonoBehaviour
         //7 = shuriken
         //8 = crane
         //9 = fortune teller
-        if (Input.GetKey("1")){
-            StartCoroutine(ChangeToFan());
-        }else if (Input.GetKey("2")){
-            StartCoroutine(ChangeToShield());
-        }else if (Input.GetKey("3")){
-            StartCoroutine(ChangeToAirplane());
-        }else if (Input.GetKey("4")){
-            StartCoroutine(ChangeToSword());
-        }else if (Input.GetKey("6")){
-            StartCoroutine(ChangeToBox());
-        }else if (Input.GetKey("7")){
-            StartCoroutine(ChangeToShuriken());
-        }else if (Input.GetKey("8")){
-            StartCoroutine(ChangeToCrane());
-        }else if (Input.GetKey("9")){
-            StartCoroutine(ChangeToFortuneTeller());
+        if(canFormChange){
+            if (Input.GetKey("1")){
+                StartCoroutine(ChangeToFan());
+                canFormChange = false;
+            }else if (Input.GetKey("2")){
+                StartCoroutine(ChangeToShield());
+                canFormChange = false;
+            }else if (Input.GetKey("3")){
+                StartCoroutine(ChangeToAirplane());
+                canFormChange = false;
+            }else if (Input.GetKey("4")){
+                StartCoroutine(ChangeToSword());
+                canFormChange = false;
+            }else if (Input.GetKey("6")){
+                StartCoroutine(ChangeToBox());
+                canFormChange = false;
+            }else if (Input.GetKey("7")){
+                StartCoroutine(ChangeToShuriken());
+                canFormChange = false;
+            }else if (Input.GetKey("8")){
+                StartCoroutine(ChangeToCrane());
+                canFormChange = false;
+            }else if (Input.GetKey("9")){
+                StartCoroutine(ChangeToFortuneTeller());
+                canFormChange = false;
+            }
         }
 
     }
@@ -59,6 +69,8 @@ public class FormChangeScript : MonoBehaviour
        
         yield return new WaitForSeconds(Fan.getDelay()+PlayerInfo.FoldTime);
         Fan.Instantiate();  
+        canFormChange = true;
+
         
     }
 
@@ -72,6 +84,7 @@ public class FormChangeScript : MonoBehaviour
 
         yield return new WaitForSeconds(Airplane.getDelay()+PlayerInfo.FoldTime);
         Airplane.Instantiate();  
+        canFormChange = true;
     }
 
 
@@ -83,7 +96,8 @@ public class FormChangeScript : MonoBehaviour
         exitSprite = SwordFold;
 
         yield return new WaitForSeconds(Sword.getDelay()+PlayerInfo.FoldTime);
-        Sword.Instantiate();  
+        Sword.Instantiate(); 
+        canFormChange = true; 
     }
     private IEnumerator ChangeToBox(){
         if(animation==null){
@@ -94,6 +108,7 @@ public class FormChangeScript : MonoBehaviour
 
         yield return new WaitForSeconds(Box.getDelay()+PlayerInfo.FoldTime);
         Box.Instantiate();  
+        canFormChange = true;
     }
     private IEnumerator ChangeToShuriken(){
         if(animation==null){
@@ -104,6 +119,7 @@ public class FormChangeScript : MonoBehaviour
 
         yield return new WaitForSeconds(Shuriken.getDelay()+PlayerInfo.FoldTime);
         Shuriken.Instantiate();  
+        canFormChange = true;
     }
     private IEnumerator ChangeToCrane(){
         if(animation==null){
@@ -114,6 +130,7 @@ public class FormChangeScript : MonoBehaviour
 
         yield return new WaitForSeconds(Crane.getDelay()+PlayerInfo.FoldTime);
         Crane.Instantiate();  
+        canFormChange = true;
     }
     private IEnumerator ChangeToFortuneTeller(){
         if(animation==null){
@@ -123,7 +140,8 @@ public class FormChangeScript : MonoBehaviour
         exitSprite = FortuneTellerFold;
 
         yield return new WaitForSeconds(FortuneTeller.getDelay()+PlayerInfo.FoldTime);
-        FortuneTeller.Instantiate();  
+        FortuneTeller.Instantiate(); 
+        canFormChange = true; 
     }
     private IEnumerator ChangeToShield(){
         if(animation==null){
@@ -134,6 +152,7 @@ public class FormChangeScript : MonoBehaviour
         
         yield return new WaitForSeconds(Shield.getDelay()+PlayerInfo.FoldTime);
         Shield.Instantiate();  
+        canFormChange = true;
     }
 
     private IEnumerator Animate(List<Sprite> first, List<Sprite> second, float firstTime, float secondTime){

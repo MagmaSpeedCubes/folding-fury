@@ -24,7 +24,6 @@ public class Airplane
         Mods.Reactivate();
     }
     public static float getDelay(){
-        PlayerInfo.Reset();
-        return PlayerInfo.FoldTime * 0.5f;
+return PlayerInfo.getOriginalDelay() * 0.5f;
     }
 }

@@ -8,7 +8,7 @@ public class PlayerInfo
     public static float CurrentHealth = 100f;
     public static float RegenRate = 1f;
     public static float Size = 1f;
-    public static string Form = "Shuriken";
+    public static string Form = "Unfolded";
     //1 = fan
     //2 = shield
     //3 = airplane
@@ -60,6 +60,9 @@ public class PlayerInfo
 
     */
 
+    public static float getOriginalDelay(){
+        return FoldTime;
+    }
     public static void Reset(){
         Absorption = 0f;
         StartHealth = 100f;
@@ -68,7 +71,6 @@ public class PlayerInfo
         Size = 1f;
         Form = "Unfolded";
         FoldTime = 1;
-        Modifier = 0;
 
         AttackAngle = 90f;
         AttackDamage = 10f;
@@ -87,11 +89,16 @@ public class PlayerInfo
         InkResistance = 0.1f;
         KnifeResistance = 0.1f;
         Resistance = 0.1f;
+        GameInfo.ResetEnemy();
         Buffs.Reapply();
-        Mods.Reactivate();
+
     }
 
     public static void NewLevel(){
-
+        GameInfo.ResetLevel();
+        PlayerInfo.Reset();
+        Debug.Log("PreActivation");
+        Mods.Reactivate();
+        CurrentHealth = MaxHealth;
     }
 }

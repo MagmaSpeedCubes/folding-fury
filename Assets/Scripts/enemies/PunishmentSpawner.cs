@@ -10,7 +10,7 @@ public class PunishmentSpawner : MonoBehaviour
     [SerializeField] private int enemiesPerCluster = 5;
     [SerializeField] private float spawnInterval = 0.5f;
     [SerializeField] private float clusterCooldown = 5f;
-    [SerializeField] private int spawnCycles = 3;
+    [SerializeField] private int spawnCycles = 1;
     [SerializeField] private Vector2 spawnDirection = Vector2.right;
 
     [SerializeField] private Sprite enemySprite;
@@ -30,28 +30,41 @@ public class PunishmentSpawner : MonoBehaviour
     private bool hasActivated = false; // Tracks if the spawner has already activated for the current condition
     private float orbitAngle = 0f; // Current angle of the spawner in the orbit
 
+    private Coroutine spawnCoroutine; // Tracks the currently running SpawnClusters coroutine
+
     void Update()
     {
-        // Orbit around the player
-        if (player != null)
-        {
-            OrbitPlayer();
-        }
+        OrbitPlayer();
 
         // Check if the spawner should activate
         if (GameInfo.GameMode == level && Timer.GetTime() >= activationTime && !hasActivated)
         {
             hasActivated = true; // Prevent multiple activations for the same condition
-            StartCoroutine(SpawnClusters());
+
+            // Stop any existing coroutine to prevent duplicates
+            if (spawnCoroutine != null)
+            {
+                StopCoroutine(spawnCoroutine);
+            }
+
+            spawnCoroutine = StartCoroutine(SpawnClusters());
         }
 
-        // Reset the activation flag if the GameMode changes
+        // Stop spawning and reset the activation flag if the GameMode changes
         if (GameInfo.GameMode != level)
         {
             hasActivated = false;
+
+            // Stop the currently running coroutine if it exists
+            if (spawnCoroutine != null)
+            {
+                StopCoroutine(spawnCoroutine);
+                spawnCoroutine = null; // Clear the reference
+            }
+
+            isSpawning = false; // Ensure the spawner is marked as inactive
         }
     }
-
     private void OrbitPlayer()
     {
         // Increment the orbit angle based on the orbit speed
@@ -69,6 +82,7 @@ public class PunishmentSpawner : MonoBehaviour
 
     private IEnumerator SpawnClusters()
     {
+        
         isSpawning = true;
 
         for (int cycle = 0; cycle < spawnCycles; cycle++)
@@ -87,12 +101,17 @@ public class PunishmentSpawner : MonoBehaviour
         isSpawning = false; // Mark the spawner as inactive
     }
 
+    private Coroutine singleClusterCoroutine; // Tracks the currently running SpawnSingleClusterCoroutine
+
     public void SpawnSingleCluster()
     {
-        if (!isSpawning)
+        // Prevent multiple instances of the coroutine
+        if (singleClusterCoroutine != null)
         {
-            StartCoroutine(SpawnSingleClusterCoroutine());
+            StopCoroutine(singleClusterCoroutine);
         }
+
+        singleClusterCoroutine = StartCoroutine(SpawnSingleClusterCoroutine());
     }
 
     private IEnumerator SpawnSingleClusterCoroutine()
@@ -107,8 +126,8 @@ public class PunishmentSpawner : MonoBehaviour
         }
 
         isSpawning = false; // Mark the spawner as inactive
+        singleClusterCoroutine = null; // Clear the reference
     }
-
     private void SpawnEnemy()
     {
         spawnDirection = (player.position - transform.position).normalized;

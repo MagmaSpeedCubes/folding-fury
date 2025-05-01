@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using TMPro;
 public class CameraMoveUp : MonoBehaviour
 {
 
@@ -18,7 +19,8 @@ public class CameraMoveUp : MonoBehaviour
 
     [SerializeField] private float moveSpeed = 1f; // Speed at which the camera moves upwards
     [SerializeField] private Transform levelSelector;
-    [SerializeField] private List<Transform> levels;
+    [SerializeField] private List<GameObject> levels;
+    [SerializeField] private List<TextMeshPro> levelTexts;
     [SerializeField] private List<Canvas> CanvasList;
     public CanvasGroup fadeCanvasGroup;
     [SerializeField] private Transform prologue;
@@ -52,6 +54,7 @@ public class CameraMoveUp : MonoBehaviour
             fade = null;
             targetPosition = transform.position + Vector3.up * moveSpeed * Time.deltaTime;
         }else if(GameInfo.GameMode>0 && !GameInfo.BossFight){
+            PlayerInfo.NewLevel();
             Timer.Reset();
             ShowCanvas(CanvasList[2]);
             StartCoroutine(FadeCanvas(fadeCanvasGroup, 0.5f, 0.5f, 0f, null));
@@ -60,8 +63,24 @@ public class CameraMoveUp : MonoBehaviour
             inLevel = true;
             
             Vector3 offset = new Vector3(0, 0, -10);
-            targetPosition = levels[GameInfo.GameMode - 1].position + offset;
-            Mods.Reactivate();
+            targetPosition = levels[GameInfo.GameMode - 1].GetComponent<Transform>().position + offset;
+            string mod = Mods.GetModName();
+
+            
+            AvatarInfo.ReversedHighScores [GameInfo.GameMode] [0] += 1;
+            
+            int numAttempts = AvatarInfo.ReversedHighScores [GameInfo.GameMode] [0];
+            TextMeshPro attemptText = levelTexts[GameInfo.GameMode - 1];
+            if(attemptText != null){
+                attemptText.text = "Attempt " + numAttempts +  "<br>" + mod;
+            }else{
+                Debug.Log("No object found");
+            }
+
+
+            SaveSystem.SaveData();
+
+
             
 
 
@@ -81,6 +100,7 @@ public class CameraMoveUp : MonoBehaviour
             ShowCanvas(CanvasList[1]);
             
         }else if (GameInfo.GameMode == -3){
+            PlayerInfo.NewLevel();
             Timer.Reset();
             ShowCanvas(CanvasList[2]);
             StartCoroutine(FadeCanvas(fadeCanvasGroup, 0.5f, 0.5f, 0f, null));
@@ -95,8 +115,15 @@ public class CameraMoveUp : MonoBehaviour
             Mods.Reactivate();
 
 
+        }else if(GameInfo.GameMode == -4){
+
+            HideCanvases();
+            ShowCanvas(CanvasList[3]);
+
         }
         transform.position = targetPosition;
+    
+
         
 
     }

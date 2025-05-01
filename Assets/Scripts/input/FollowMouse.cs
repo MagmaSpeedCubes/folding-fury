@@ -14,12 +14,14 @@ public class FollowMouse : MonoBehaviour
     }
 
     void Update(){
-        if(MouseInWindow()){
+        if(MouseInWindow() && CameraMoveUp.inLevel){
             if(active){
                 FollowMousePositionDelayed(PlayerInfo.MovementSpeed);
             }else if(GameInfo.GameMode > 0 || GameInfo.GameMode == -3){
                 FollowMousePosition();
             }
+        }else if(!CameraMoveUp.inLevel){
+            active = false;
         }
 
     }

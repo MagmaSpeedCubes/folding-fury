@@ -64,6 +64,9 @@ public class PlayerSound : MonoBehaviour
                 currentClip = "Prologue";
             }
         }
+        if(!CameraMoveUp.inLevel){
+            audio.Stop();
+        }
     }
 /*
 

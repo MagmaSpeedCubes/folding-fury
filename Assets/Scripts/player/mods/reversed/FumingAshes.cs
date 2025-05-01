@@ -26,9 +26,14 @@ public class FumingAshes : MonoBehaviour
     }
 
     public void Update(){
+        if(GameInfo.GameMode < 1 && GameInfo.GameMode != -3){
+            active = false;
+        }
         if(active && GameInfo.numEnemies < 3){
             Instance.spawnEnemies();
         }
+        
+        
     }
 
     public void spawnEnemies(){

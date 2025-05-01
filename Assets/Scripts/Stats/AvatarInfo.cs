@@ -14,6 +14,8 @@ public class AvatarInfo : MonoBehaviour
     public static int[][] HighScores;
     public static int[][] ReversedHighScores; 
 
+    public static int[][] Upgrades;
+
 
     public AvatarInfo(){
         Paperclips = 0;
@@ -23,12 +25,14 @@ public class AvatarInfo : MonoBehaviour
         SFXVolume = 1f;
         MusicVolume = 1f;
 
+        Upgrades = new int[4][];
+
         HighScores = new int[GameInfo.NumLevels+1][];
         ReversedHighScores = new int[GameInfo.NumLevels+1][];
 
         for(int i=1; i<=GameInfo.NumLevels; i++){
             HighScores[i] = new int[] {-1, -1, -1, -1, -1, -1, -1};
-            ReversedHighScores[i] = new int[] {0, -1, -1, -1, -1, -1, -1};
+            ReversedHighScores[i] = new int[] {0, -1, -1, -1, -1, -1, -1}; //number at index 0 will store the number of attempts
         }
     }
 

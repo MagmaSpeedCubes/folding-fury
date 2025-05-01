@@ -25,7 +25,6 @@ public class FortuneTeller
     }
 
     public static float getDelay(){
-        PlayerInfo.Reset();
-        return PlayerInfo.FoldTime * 3f;
+return PlayerInfo.getOriginalDelay() * 3f;
     }
 }

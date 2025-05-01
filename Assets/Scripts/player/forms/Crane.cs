@@ -25,6 +25,6 @@ public class Crane
     }
     public static float getDelay(){
         PlayerInfo.Reset();
-        return PlayerInfo.FoldTime * 2f;
+return PlayerInfo.getOriginalDelay() * 2f;
     }
 }

@@ -32,6 +32,9 @@ public class BleedingHeart : MonoBehaviour
                 }
             }
         }
+        if(GameInfo.GameMode < 1 && GameInfo.GameMode != -3){
+            active = false;
+        }
     }
 
 }
