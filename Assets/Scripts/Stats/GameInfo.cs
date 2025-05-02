@@ -30,6 +30,7 @@ public class GameInfo
     public static int SelectedModifier = 0;
 
     public static int NumLevels = 8;
+    public static int NumModifiers = 6;
     //1-16 = respective levels
     //0 = level selector
     //-1 = mod selector
@@ -68,8 +69,6 @@ public class GameInfo
 
         EnemyDamage = 1f;
 
-    
-        //stationary enemies will get an attack rate boost
         BossFight = false;
         BossFightStart = 0f;
         
@@ -107,7 +106,7 @@ public class GameInfo
         EnemyDamage = 1f;
 
     
-        //stationary enemies will get an attack rate boost
+
         BossFight = false;
         BossFightStart = 0f;
 
@@ -117,6 +116,8 @@ public class GameInfo
         DiamondsCollected = 0;
 
         DamageTaken = 0f;
+
+        
     }
 
     public static void ResetEnemy(){

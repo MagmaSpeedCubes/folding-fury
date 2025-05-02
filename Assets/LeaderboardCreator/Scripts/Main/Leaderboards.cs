@@ -2,6 +2,6 @@ namespace Dan.Main
 {
     public static class Leaderboards
     {
-        public static LeaderboardReference DemoSceneLeaderboard = new LeaderboardReference("980324f10e2f03fc0fd6a38a70f88123919a6aed35a4aea86211ad58b68db9c4");
+        public static LeaderboardReference test = new LeaderboardReference("ea0cd2b12833947873a81a377fe0688ffc0272888390bd29524a8a9d8f751546");
     }
 }

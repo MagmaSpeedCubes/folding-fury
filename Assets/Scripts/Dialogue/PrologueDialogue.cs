@@ -38,7 +38,7 @@ public class PrologueDialogue : MonoBehaviour
                 
             }
             if((Timer.GetTime()>145 && !GameInfo.BossFight)){
-                Lights.active = false;
+                GameInfo.ResetEnemy();
                 Blackout.deactivate();
                 GameInfo.BossFight = true;
             }

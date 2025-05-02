@@ -16,20 +16,15 @@ public class Blackout : MonoBehaviour
     }
     public static void activate(){
         Lights.activate();//in addition to base effects
-        Debug.Log("ee");
         Instance.addCover();
         GameInfo.EnemyTransparency = 0.9f; //enemies are 90% transparent
         GameInfo.SpawnRate *= 0.8f; //80% as many enemies spawn
         PlayerInfo.RegenRate *= 0.5f; //50% regen rate
     }
 
-    public void Update(){
-        if(GameInfo.GameMode < 1 && GameInfo.GameMode != -3){
-            removeCover();
-        }
-    }
 
     public static void deactivate(){
+        Lights.deactivate();
         Instance.removeCover();
     }
 

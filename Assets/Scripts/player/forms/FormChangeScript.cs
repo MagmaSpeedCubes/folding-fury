@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class FormChangeScript : MonoBehaviour
 {
 
+    [SerializeField] private Sprite unfolded;
     [SerializeField] private List<Sprite> FanFold;
     [SerializeField] private List<Sprite> ShieldFold;
     [SerializeField] private List<Sprite> AirplaneFold;
@@ -18,6 +19,15 @@ public class FormChangeScript : MonoBehaviour
     public float delay;
     public static bool canFormChange = true;
     private Coroutine animation;
+    private static FormChangeScript instance;
+
+    void Awake(){
+        if(instance == null){
+            instance = this;
+        }else{
+            Destroy(gameObject);
+        }
+    }
 
     private List<Sprite> exitSprite;
     void Update()
@@ -153,6 +163,15 @@ public class FormChangeScript : MonoBehaviour
         yield return new WaitForSeconds(Shield.getDelay()+PlayerInfo.FoldTime);
         Shield.Instantiate();  
         canFormChange = true;
+    }
+
+    public void Unfold(){
+        gameObject.GetComponent<SpriteRenderer>().sprite = unfolded;
+
+    }
+
+    public static void Reset(){
+        instance.Unfold();
     }
 
     private IEnumerator Animate(List<Sprite> first, List<Sprite> second, float firstTime, float secondTime){

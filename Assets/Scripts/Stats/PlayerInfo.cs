@@ -97,6 +97,7 @@ public class PlayerInfo
     public static void NewLevel(){
         GameInfo.ResetLevel();
         PlayerInfo.Reset();
+        FormChangeScript.Reset();
         Debug.Log("PreActivation");
         Mods.Reactivate();
         CurrentHealth = MaxHealth;

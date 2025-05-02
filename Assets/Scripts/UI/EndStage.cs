@@ -61,11 +61,22 @@ public class EndStage : MonoBehaviour
         Instance.diamondText.text = "Diamonds Collected: " + GameInfo.DiamondsCollected + " /10 +" + diamondBonus;
         Instance.fscoreText.text = "Score: " + GameInfo.Score;
 
+        int multiplier = 1;
+        for(int i=0; i<GameInfo.NumModifiers; i++){
+            multiplier += getModBadges(i+1);
+        }
+
+        GameInfo.Score *= multiplier;
+        Instance.badgesText.text = "Badge Multiplier x" + multiplier;
+        Instance.fscoreText.text = "Score: " + GameInfo.Score;
+
 
         
-        if(GameInfo.Score > oldHighScore){
+        if(GameInfo.Score > oldHighScore && win){
             Instance.fscoreText.text = "New Record: ";
             saveRecord(level, mod, (int)GameInfo.Score);
+            //high scores are only saved on victory
+
         }else{
             Instance.fscoreText.text = "Final Score: ";
         }
@@ -115,5 +126,26 @@ public class EndStage : MonoBehaviour
         SaveSystem.SaveData();
 
         
+    }
+
+    public static int getModBadges(int modNumber){
+        int score = EndStage.getCurrentScore(GameInfo.SelectedLevel, 0);
+        int modScore = EndStage.getCurrentScore(GameInfo.SelectedLevel, modNumber);
+        int reverseModScore = EndStage.getCurrentScore(GameInfo.SelectedLevel, -modNumber);
+        if(score <= 0){
+            return 0;
+            //level was either failed or not attempted
+        }
+        else if(modScore <= 0){
+            return 0;
+            //level was beat on base
+        }
+        else if(reverseModScore <= 0){
+            return 1;
+            //level was beat on base mod
+        }else{
+            return 2;
+            //level was beat on reverse mod
+        }
     }
 }

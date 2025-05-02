@@ -23,7 +23,6 @@ public class Mods
             return "Glass Half Full";
         }else if(PlayerInfo.Modifier == 6){
             Expert.activate();
-            Debug.Log("Expert clicked");
             return "Expert Mode";
         }
 
