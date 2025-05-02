@@ -88,4 +88,9 @@ public class Mods
         // fix later
 
     }
+
+    public static void Deactivate(){
+        Lights.deactivate();
+        Blackout.deactivate();
+    }
 }

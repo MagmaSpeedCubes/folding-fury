@@ -16,7 +16,7 @@ public class FormChangeScript : MonoBehaviour
     [SerializeField] private List<Sprite> FortuneTellerFold;
     
     public float delay;
-    private bool canFormChange = true;
+    public static bool canFormChange = true;
     private Coroutine animation;
 
     private List<Sprite> exitSprite;

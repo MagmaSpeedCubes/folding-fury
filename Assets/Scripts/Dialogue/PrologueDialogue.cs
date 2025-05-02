@@ -23,6 +23,7 @@ public class PrologueDialogue : MonoBehaviour
             if (index == 0)
             {
                 dialogue.SetIndexFromLevel();
+                Airplane.Instantiate();  
             }
 
             if (Times.Length > index && Timer.GetTime() > Times[index] && !isDialogueRunning)

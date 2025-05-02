@@ -26,19 +26,25 @@ public class PlayerAnimation : MonoBehaviour
     {
         while (true)
         {
-            // Get the current animation based on the player's form
-            List<Sprite> currentAnimation = GetCurrentAnimation();
+            if(FormChangeScript.canFormChange){
+                // Get the current animation based on the player's form
+                List<Sprite> currentAnimation = GetCurrentAnimation();
 
-            if (currentAnimation != null && currentAnimation.Count > 0 && PlayerInfo.Form != "Unfolded")
-            {
-                // Update the sprite to the next frame
-                tick = (tick + 1) % currentAnimation.Count;
-                gameObject.GetComponent<SpriteRenderer>().sprite = currentAnimation[tick];
+                if (currentAnimation != null && currentAnimation.Count > 0 && PlayerInfo.Form != "Unfolded")
+                {
+                    // Update the sprite to the next frame
+                    tick = (tick + 1) % currentAnimation.Count;
+                    gameObject.GetComponent<SpriteRenderer>().sprite = currentAnimation[tick];
+                }
+
+                
+
             }
-
             // Wait for the next frame based on the attack rate
             float delay = 1f / (frames * PlayerInfo.AttackRate);
             yield return new WaitForSeconds(delay);
+            
+
         }
     }
 

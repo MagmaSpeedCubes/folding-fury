@@ -24,6 +24,13 @@ public class Lights : MonoBehaviour{
         
         }
     }
+
+    public static void deactivate(){
+        if(active && Instance.ct != null){
+            active = false;
+            Instance.ct = null;
+        }
+    }
     public IEnumerator Flicker(CanvasGroup canvasGroup, float fadeInTime, float waitTime, float fadeOutTime, float holdTime)
     {
         while(Lights.active){

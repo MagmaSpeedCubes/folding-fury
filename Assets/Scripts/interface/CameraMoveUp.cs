@@ -119,6 +119,7 @@ public class CameraMoveUp : MonoBehaviour
 
             HideCanvases();
             ShowCanvas(CanvasList[3]);
+            Mods.Deactivate();
 
         }
         transform.position = targetPosition;
