@@ -64,6 +64,10 @@ public class ModButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         xpos = transform.position.x;
         ypos = transform.position.y;
         audio = GetComponent<AudioSource>();
+
+
+
+
         if (isUnlocked())
         {
             button.GetComponent<Image>().sprite = unselected;
@@ -83,7 +87,10 @@ public class ModButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             if (state == 0)
             {
                 state = 1;
-                instance.audio.PlayOneShot(instance.unlock, AvatarInfo.SFXVolume);
+                instance.audio.loop = false;
+                audio.volume = AvatarInfo.SFXVolume;
+                audio.clip = unlock;
+                audio.Play();
             }
         }
 
@@ -118,7 +125,10 @@ public class ModButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (state == 0)
         {
             button.GetComponent<Image>().sprite = lockedSprite;
-            instance.audio.PlayOneShot(instance.locked, AvatarInfo.SFXVolume);
+            instance.audio.loop = false;
+            audio.volume = AvatarInfo.SFXVolume;
+            audio.clip = locked;
+            audio.Play();
         }
         else if (state == 1)
         {
@@ -241,7 +251,10 @@ public class ModButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if(!modSelected){
             button.GetComponent<Image>().sprite = reversed;
             state = 3;
-            instance.audio.PlayOneShot(instance.reverse, AvatarInfo.SFXVolume);
+            instance.audio.loop = false;
+            audio.volume = AvatarInfo.SFXVolume;
+            audio.clip = reverse;
+            audio.Play();
             float x = CentralMod.transform.position.x;
             float y = CentralMod.transform.position.y;
             StartCoroutine(moveTo(x, y, 0.15f));
@@ -276,7 +289,10 @@ public class ModButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if(!modSelected){
             button.GetComponent<Image>().sprite = selected;
             state = 2;
-            instance.audio.PlayOneShot(instance.select, AvatarInfo.SFXVolume);
+            instance.audio.loop = false;
+            audio.volume = AvatarInfo.SFXVolume;
+            audio.clip = select;
+            audio.Play();
             GameInfo.SelectedModifier = mod;
             ModTextObject.text = modText;
             ModSubtextObject.text = modSubtext;
@@ -289,7 +305,10 @@ public class ModButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         
         button.GetComponent<Image>().sprite = unselected;
-        instance.audio.PlayOneShot(instance.deselect, AvatarInfo.SFXVolume);
+        instance.audio.loop = false;
+        audio.volume = AvatarInfo.SFXVolume;
+        audio.clip = deselect;
+        audio.Play();
 
 
         if (state == 3)
