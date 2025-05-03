@@ -64,22 +64,22 @@ public class PlayerInfo
         return FoldTime;
     }
     public static void Reset(){
-        Absorption = 0f;
-        StartHealth = 100f;
-        MaxHealth = 100f;
-        RegenRate = 1f;
+        MaxHealth = GameInfo.MaxHealth;
+        StartHealth = MaxHealth;
+
+        RegenRate = GameInfo.RegenRate;
         Size = 1f;
         Form = "Unfolded";
-        FoldTime = 1;
+        FoldTime = 1/GameInfo.FoldingSpeed;
 
         AttackAngle = 90f;
-        AttackDamage = 10f;
-        AttackRange = 1.2f;
-        AttackRate = 1f;
+        AttackDamage = GameInfo.AttackDamage;
+        AttackRange = GameInfo.AttackRange;
+        AttackRate = GameInfo.AttackRate;
         Knockback = 0.4f;
         MissRate = 0f;
 
-        MovementSpeed = 5f;
+        MovementSpeed = GameInfo.MovementSpeed;
         FireDamage = 0f;
 
         PImmortal = 0;
@@ -94,9 +94,11 @@ public class PlayerInfo
 
     }
 
+
     public static void NewLevel(){
         GameInfo.ResetLevel();
         PlayerInfo.Reset();
+        Absorption = GameInfo.Absorption;
         FormChangeScript.Reset();
         Debug.Log("PreActivation");
         Mods.Reactivate();

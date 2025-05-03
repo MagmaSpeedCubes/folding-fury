@@ -14,7 +14,9 @@ public class AvatarInfo : MonoBehaviour
     public static int[][] HighScores;
     public static int[][] ReversedHighScores; 
 
-    public static int[][] Upgrades;
+    public static int[] Upgrades;
+
+    public static bool [] Achievements;
 
 
     public AvatarInfo(){
@@ -25,10 +27,14 @@ public class AvatarInfo : MonoBehaviour
         SFXVolume = 1f;
         MusicVolume = 1f;
 
-        Upgrades = new int[4][];
 
         HighScores = new int[GameInfo.NumLevels+1][];
         ReversedHighScores = new int[GameInfo.NumLevels+1][];
+
+        Upgrades = new int[9] {0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+        Achievements = new bool[12] {false, false, false, false, false, false, false, false, false, false, false, false};
+        
 
         for(int i=1; i<=GameInfo.NumLevels; i++){
             HighScores[i] = new int[] {-1, -1, -1, -1, -1, -1, -1};

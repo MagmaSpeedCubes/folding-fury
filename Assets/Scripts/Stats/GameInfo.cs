@@ -2,9 +2,20 @@ using UnityEngine;
 
 public class GameInfo
 {
-    public static float Score = 0f;
-    public static float ScoreMultiplier = 1f;
+    public static float MaxHealth = 100f;
+    public static float RegenRate = 1f;
+    public static float Absorption = 0f;
+
+    public static float MovementSpeed = 5f;
+    public static float FoldingSpeed = 1f;
     public static float LootMultiplier = 1f;
+
+    public static float AttackRange = 1.2f;
+    public static float AttackDamage = 10f;
+    public static float AttackRate = 1f;
+
+
+    public static float Score = 0f;
 
 
     public static int numEnemies = 0;
@@ -26,7 +37,7 @@ public class GameInfo
     public static float BossFightStart = 0f;
     
     public static int GameMode = 0;
-    public static int SelectedLevel = 0;
+    public static int SelectedLevel = 1;
     public static int SelectedModifier = 0;
 
     public static int NumLevels = 8;
@@ -52,7 +63,6 @@ public class GameInfo
 
     public static void Reset(){
         Score = 0f;
-        ScoreMultiplier = 1f;
         LootMultiplier = 1f;
 
 
@@ -88,7 +98,6 @@ public class GameInfo
 
     public static void ResetLevel(){
         Score = 0f;
-        ScoreMultiplier = 1f;
         LootMultiplier = 1f;
 
 

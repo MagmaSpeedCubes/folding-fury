@@ -15,6 +15,8 @@ public static class SaveSystem
             Cards = AvatarInfo.Cards,
             SFXVolume = AvatarInfo.SFXVolume,
             MusicVolume = AvatarInfo.MusicVolume,
+            Upgrades = AvatarInfo.Upgrades,
+            Achievements = AvatarInfo.Achievements,
             HighScores = SaveInfo.generateAStringFromAnArray(AvatarInfo.HighScores),
             ReversedHighScores = SaveInfo.generateAStringFromAnArray(AvatarInfo.ReversedHighScores)
         };
@@ -36,6 +38,8 @@ public static class SaveSystem
             AvatarInfo.Cards = data.Cards;
             AvatarInfo.SFXVolume = data.SFXVolume;
             AvatarInfo.MusicVolume = data.MusicVolume;
+            AvatarInfo.Upgrades = data.Upgrades;
+            AvatarInfo.Achievements = data.Achievements;
             AvatarInfo.HighScores = SaveInfo.loadAnArrayFromString(data.HighScores);
             AvatarInfo.ReversedHighScores = SaveInfo.loadAnArrayFromString(data.ReversedHighScores);
             Debug.Log("Save successfully loaded");

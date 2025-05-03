@@ -20,6 +20,10 @@ public class SaveInfo
     public string HighScores;
     public string ReversedHighScores;
 
+    public int[] Upgrades;
+
+    public bool [] Achievements;
+
 
 
     public SaveInfo(){
@@ -29,6 +33,10 @@ public class SaveInfo
 
         SFXVolume = AvatarInfo.SFXVolume;
         MusicVolume = AvatarInfo.MusicVolume;
+
+        Upgrades = AvatarInfo.Upgrades;
+
+        Achievements = AvatarInfo.Achievements;
 
         HighScores = SaveInfo.generateAStringFromAnArray(AvatarInfo.HighScores);
         ReversedHighScores = SaveInfo.generateAStringFromAnArray(AvatarInfo.ReversedHighScores);
