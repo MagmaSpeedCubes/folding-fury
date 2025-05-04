@@ -28,12 +28,15 @@ public class EndStage : MonoBehaviour
 
 
     public static void CompleteStage(bool win){
-        
-        int oldHighScore = getCurrentScore(GameInfo.GameMode, PlayerInfo.Modifier);
+        Debug.Log("Level: "+GameInfo.GameMode);
         int level = GameInfo.GameMode;
-        int mod = PlayerInfo.Modifier;
-        CameraMoveUp.inLevel = false;
+        
         GameInfo.GameMode = -4;
+        CameraMoveUp.inLevel = false;
+        int oldHighScore = getCurrentScore(level, PlayerInfo.Modifier);
+        
+        int mod = PlayerInfo.Modifier;
+
         if(win){
             Instance.mainText.text = "Stage Complete";
         }else{

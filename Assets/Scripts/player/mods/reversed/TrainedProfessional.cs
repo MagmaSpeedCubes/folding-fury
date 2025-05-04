@@ -18,6 +18,7 @@ public class TrainedProfessional : MonoBehaviour
 
     public static void activate(){
         Expert.activate();
+        GameInfo.SpawnRate *= 2f;
         GameInfo.EnragedRate = 0.03f;
         GameInfo.EnemyRegen = 1f;
         PlayerInfo.MaxHealth *= 0.4f;

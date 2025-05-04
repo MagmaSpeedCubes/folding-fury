@@ -29,12 +29,7 @@ public class Collect : MonoBehaviour
             bool collected = false;
 
             
-            if(spriteRenderer.sprite == bossFightKey){
-                BossFight.StartBossFight();
-                Destroy(collision.gameObject);
-                collected = true;
-                
-            }else if(spriteRenderer.sprite == paperclip){
+            if(spriteRenderer.sprite == paperclip){
                 AvatarInfo.Paperclips += 1;
                 GameInfo.Score += 5;
                 Destroy(collision.gameObject);

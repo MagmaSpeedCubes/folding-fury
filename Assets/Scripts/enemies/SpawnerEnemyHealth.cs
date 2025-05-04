@@ -1,9 +1,10 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 [RequireComponent(typeof(AudioSource))]
 
-public class EnemyHealth : MonoBehaviour, IDamageable
+public class SpawnerEnemyHealth : MonoBehaviour, IDamageable
 {
     
     private AudioSource audio;
@@ -11,7 +12,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public AudioClip death;
 
     public float maxHealth = 100f;
-    [SerializeField] private float currentHealth;
+    public float currentHealth;
+
+    [SerializeField] private TextMeshPro healthText;
 
     public Sprite mainSprite;
     public Sprite damagedSprite;
@@ -34,6 +37,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         {
             currentHealth = maxHealth;
         }
+
+        healthText.text = "" + currentHealth.ToString("F2");
     }
 
     private IEnumerator ResetSprite(float delay)
