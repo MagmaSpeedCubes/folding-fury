@@ -28,6 +28,9 @@ public class EndStage : MonoBehaviour
 
 
     public static void CompleteStage(bool win){
+
+
+
         Debug.Log("Level: "+GameInfo.GameMode);
         int level = GameInfo.GameMode;
         
@@ -38,6 +41,7 @@ public class EndStage : MonoBehaviour
         int mod = PlayerInfo.Modifier;
 
         if(win){
+            unlockAchievements(level, mod, (int)GameInfo.DamageTaken);
             Instance.mainText.text = "Stage Complete";
         }else{
             Instance.mainText.text = "Game Over";
@@ -149,6 +153,36 @@ public class EndStage : MonoBehaviour
         }else{
             return 2;
             //level was beat on reverse mod
+        }
+    }
+
+    public static void unlockAchievements(int stage, int modifier, int damage){
+        if(stage == 1 && !Achievements.GetAchievement(2)){
+            Achievements.UnlockAchievement(2);
+        }
+
+        if(modifier == 1 && !Achievements.GetAchievement(5)){
+            Achievements.UnlockAchievement(5);
+        }
+
+        if(modifier == 2 && !Achievements.GetAchievement(6)){
+            Achievements.UnlockAchievement(6);
+        }
+
+        if(modifier == -1 && !Achievements.GetAchievement(7)){
+            Achievements.UnlockAchievement(7);
+        }
+
+        if(modifier == -5 && !Achievements.GetAchievement(8)){
+            Achievements.UnlockAchievement(8);
+        }
+
+        if(modifier == -3 && !Achievements.GetAchievement(9) && damage == 0){
+            Achievements.UnlockAchievement(8);
+        }
+
+        if(stage == 8 && modifier == -6 && !Achievements.GetAchievement(11)){
+            Achievements.UnlockAchievement(11);
         }
     }
 }

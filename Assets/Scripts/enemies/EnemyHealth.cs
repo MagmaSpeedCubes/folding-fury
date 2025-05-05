@@ -75,6 +75,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
         if (killedByPlayer)
         {
+            if(!Achievements.GetAchievement(1)){
+                Achievements.UnlockAchievement(1);
+            }
             GameInfo.EnemiesKilled +=1;
             GetComponent<LootBag>().InstantiateLoot(transform.position);
             PlayDeathSound();

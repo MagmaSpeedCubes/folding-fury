@@ -24,6 +24,7 @@ public static class SaveSystem
         string json = JsonUtility.ToJson(data);
         PlayerPrefs.SetString("SaveData", json);
         PlayerPrefs.Save();
+        Debug.Log("Data Saved");
     }
 
     public static bool LoadData()

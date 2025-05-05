@@ -67,6 +67,9 @@ public class FormChangeScript : MonoBehaviour
                 StartCoroutine(ChangeToFortuneTeller());
                 canFormChange = false;
             }
+            if(!canFormChange && !Achievements.GetAchievement(0)){
+                Achievements.UnlockAchievement(0);
+            }
         }
 
     }

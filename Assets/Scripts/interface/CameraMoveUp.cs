@@ -124,6 +124,12 @@ public class CameraMoveUp : MonoBehaviour
         }else if(GameInfo.GameMode == -5){
             HideCanvases();
             ShowCanvas(CanvasList[4]);
+        }else if(GameInfo.GameMode == -6){
+            HideCanvases();
+            ShowCanvas(CanvasList[5]);
+        }else if(GameInfo.GameMode == -7){
+            HideCanvases();
+            ShowCanvas(CanvasList[6]);
         }
         transform.position = targetPosition;
     
