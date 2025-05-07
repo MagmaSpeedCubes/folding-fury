@@ -21,12 +21,14 @@ public class PlayerAttack : MonoBehaviour
     {
         isAttacking = true; // Set attacking state
 
-        // Create a new attack range visualization
-        GameObject attackRangeObject = CreateAttackRangeMesh();
 
+        
         if (Random.Range(1, 101) > PlayerInfo.MissRate * 100)
         {
+            // Create a new attack range visualization
+            GameObject attackRangeObject = CreateAttackRangeMesh();
             Attack(); // Perform the attack
+            StartCoroutine(FadeOutAttackRange(attackRangeObject));
         }
         else
         {
@@ -34,7 +36,8 @@ public class PlayerAttack : MonoBehaviour
         }
 
         // Start fading out the attack range
-        StartCoroutine(FadeOutAttackRange(attackRangeObject));
+        
+        
 
         yield return new WaitForSeconds(1 / PlayerInfo.AttackRate); // Wait for cooldown
         isAttacking = false; // Reset attacking state

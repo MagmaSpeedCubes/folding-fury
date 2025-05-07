@@ -68,7 +68,7 @@ public class ModButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
 
 
-        if (isUnlocked())
+        if (AvatarInfo.HighScores[GameInfo.SelectedLevel][0] > 0)
         {
             button.GetComponent<Image>().sprite = unselected;
             state = 1;
@@ -82,7 +82,7 @@ public class ModButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     private void Update()
     {
-        if (isUnlocked())
+        if (AvatarInfo.HighScores[GameInfo.SelectedLevel][0] > 0)
         {
             if (state == 0)
             {
@@ -92,6 +92,9 @@ public class ModButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 audio.clip = unlock;
                 audio.Play();
             }
+        }else{
+            button.GetComponent<Image>().sprite = lockedSprite;
+            state = 0;
         }
 
 
@@ -132,7 +135,10 @@ public class ModButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
         else if (state == 1)
         {
-            selectMod();
+            if(AvatarInfo.HighScores[GameInfo.SelectedLevel][0] > 0){
+                selectMod();
+            }
+            
         }
         else if (state == 2 || state == 3)
         {
@@ -145,7 +151,9 @@ public class ModButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (state == 1)
         {
-            selectReverseMod();
+            if(AvatarInfo.HighScores[GameInfo.SelectedLevel][mod] >= 0){
+                selectReverseMod();
+            }
         }
     }
 
@@ -346,10 +354,7 @@ public class ModButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         ModSubtextObject.text = "";
     }
 
-    public bool isUnlocked()
-    {
-        return true; // For testing purposes
-    }
+
 
     // Detect when the mouse button is pressed down
 // Detect when the mouse button is pressed down

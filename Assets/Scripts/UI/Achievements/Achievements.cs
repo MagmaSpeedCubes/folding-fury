@@ -23,9 +23,11 @@ public class Achievements : MonoBehaviour
     }
 
     public static void OnActivate(){
+        Debug.Log(AvatarInfo.Achievements);
         for(int i=0; i<instance.AchievementButtons.Count; i++){
             AchievementButton ab = instance.AchievementButtons[i].GetComponent<AchievementButton>();
             bool earned;
+            
             if(GetAchievement(i)){
                 Debug.Log("Loaded Achievement "+i);
                 earned = true;
@@ -33,8 +35,9 @@ public class Achievements : MonoBehaviour
             }else{
                 earned = false;
             }
+            
 
-            ab.Show(true);
+            ab.Show(earned);
 
         }
     }

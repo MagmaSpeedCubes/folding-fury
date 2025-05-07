@@ -22,6 +22,8 @@ public class BossSpawner : MonoBehaviour
     [SerializeField] private float spawnSpeed = 5f;
 
     [SerializeField] private Transform player; // Reference to the player
+
+    [SerializeField] private float enemyLoot = 0f;
     
     public bool active = false;
 
@@ -119,6 +121,9 @@ public class BossSpawner : MonoBehaviour
                 enemy.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1 - GameInfo.EnemyTransparency);
             }
         }
+
+        enemy.GetComponent<LootBag>().localLootMultiplier = enemyLoot;
+
         enemy.GetComponent<SpriteRenderer>().sprite = enemySprite;
         GameInfo.numEnemies += 1;
         GameInfo.EnemiesSpawned += 1;

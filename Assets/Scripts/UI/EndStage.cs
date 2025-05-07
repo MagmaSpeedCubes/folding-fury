@@ -29,7 +29,7 @@ public class EndStage : MonoBehaviour
 
     public static void CompleteStage(bool win){
 
-
+        GameInfo.BossFight = false;
 
         Debug.Log("Level: "+GameInfo.GameMode);
         int level = GameInfo.GameMode;

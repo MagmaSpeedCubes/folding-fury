@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerInfo
 {
+    public static float PlayerLuck = 1f;
     public static float Absorption = 0f;
     public static float StartHealth = 100f;
     public static float MaxHealth = 100f;
@@ -64,6 +65,7 @@ public class PlayerInfo
         return FoldTime;
     }
     public static void Reset(){
+        PlayerLuck = 1f;
         MaxHealth = GameInfo.MaxHealth;
         StartHealth = MaxHealth;
 

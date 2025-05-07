@@ -33,7 +33,7 @@ public class AvatarInfo : MonoBehaviour
 
         Upgrades = new int[9] {0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-        Achievements = new bool[12] {false, false, false, false, false, false, false, false, false, false, false, false};
+        Achievements = new bool[12];
         
 
         for(int i=1; i<=GameInfo.NumLevels; i++){

@@ -6,6 +6,7 @@ public class LootBag : MonoBehaviour
 {
     public GameObject droppedItemPrefab;
     private float multiplier = GameInfo.LootMultiplier;
+    public float localLootMultiplier;
     public List<Loot> lootList = new List<Loot>();
 
     List<Loot> GetDroppedItems()
@@ -14,7 +15,7 @@ public class LootBag : MonoBehaviour
 
         foreach (Loot item in lootList)
         {
-            float adjustedDropChance = item.dropChance * multiplier; // Adjust drop chance by multiplier
+            float adjustedDropChance = item.dropChance * multiplier * localLootMultiplier * PlayerInfo.PlayerLuck; // Adjust drop chance by multiplier
 
             // Add guaranteed drops for every 100 in adjustedDropChance
             while (adjustedDropChance >= 100)

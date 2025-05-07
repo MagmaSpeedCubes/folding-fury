@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] private float enemyLoot = 1f;
+
     [SerializeField] private float activationTime;
     [SerializeField] private int level;
 
@@ -21,6 +23,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float health = 100f;
     [SerializeField] private float damage = 15f;
     [SerializeField] private float spawnSpeed = 5f; 
+
+    
 
     private bool isSpawning = false; // Tracks if the spawner is currently active
     private bool hasActivated = false; // Tracks if the spawner has already activated for the current condition
@@ -111,6 +115,8 @@ public class EnemySpawner : MonoBehaviour
                 Debug.Log("Normal Enemy");
                 enemy.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1 - GameInfo.EnemyTransparency);
             }
+
+            enemy.GetComponent<LootBag>().localLootMultiplier = enemyLoot;
             
         }
         enemy.GetComponent<SpriteRenderer>().sprite = enemySprite;

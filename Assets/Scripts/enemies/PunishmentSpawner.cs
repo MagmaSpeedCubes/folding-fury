@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PunishmentSpawner : MonoBehaviour
 {
+    [SerializeField] private float enemyLoot = 0f;
+
     [SerializeField] private float activationTime;
     [SerializeField] private int level;
 
@@ -168,6 +170,9 @@ public class PunishmentSpawner : MonoBehaviour
                 enemy.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1 - GameInfo.EnemyTransparency);
             }
         }
+
+        enemy.GetComponent<LootBag>().localLootMultiplier = enemyLoot;
+        
         enemy.GetComponent<SpriteRenderer>().sprite = enemySprite;
         GameInfo.numEnemies += 1;
         GameInfo.EnemiesSpawned += 1;
