@@ -22,7 +22,7 @@ public class BossFight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!GameInfo.BossFight && GameInfo.GameMode > 0 && Timer.GetTime() > activationTime){
+        if(!GameInfo.BossFight && GameInfo.GameMode == level && Timer.GetTime() > activationTime){
             ActivateBossFight();
             Debug.Log("Started Boss Fight");
         }
@@ -34,10 +34,10 @@ public class BossFight : MonoBehaviour
             EndBossFight();
             Debug.Log("Ended Boss Fight");
         }else{
-            GameObject hub = hubs[index];
-            PhaseHub hubScript = hub.GetComponent<PhaseHub>();
-            hubScript.ActivatePhase();
-            index += 1;
+        GameObject hub = hubs[index];
+        PhaseHub hubScript = hub.GetComponent<PhaseHub>();
+        hubScript.ActivatePhase();
+        index += 1;
         }
 
 
