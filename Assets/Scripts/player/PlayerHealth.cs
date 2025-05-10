@@ -27,6 +27,8 @@ public class PlayerHealth : MonoBehaviour
         PlayerInfo.CurrentHealth = PlayerInfo.StartHealth;
     }
     public void Damage(float damageAmount, string attackType){
+        float damageMultiplier = 1-PlayerInfo.Resistance;
+        damageAmount *= damageMultiplier;
         if(PlayerInfo.Absorption >= damageAmount){
             PlayerInfo.Absorption -= damageAmount;
             return;
@@ -43,7 +45,7 @@ public class PlayerHealth : MonoBehaviour
         }
         PlayDamageSound();
     }
-    private void Die(){
+    public void Die(){
         PlayDeathSound();
         EndStage.CompleteStage(false);
 

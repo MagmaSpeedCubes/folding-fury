@@ -11,9 +11,9 @@ public class FortuneTeller
         PlayerInfo.FoldTime *= 3f;
 
         PlayerInfo.AttackAngle *= 0f;
-        PlayerInfo.AttackDamage *= 0f;
+        PlayerInfo.AttackDamage *= 0.005f;
         PlayerInfo.AttackRange *= 0f;
-        PlayerInfo.AttackRate *= 0.25f;
+        PlayerInfo.AttackRate *= 0.08f;
         PlayerInfo.Knockback *= 0f;
 
         PlayerInfo.MovementSpeed *= 1f;
@@ -25,6 +25,10 @@ public class FortuneTeller
     }
 
     public static float getDelay(){
-return PlayerInfo.getOriginalDelay() * 3f;
+        return PlayerInfo.getOriginalDelay() * 3f;
+    }
+
+    public static void fortuneTellerAttack(){
+        PlayerInfo.PlayerLuck += PlayerInfo.AttackDamage;
     }
 }

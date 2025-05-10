@@ -57,6 +57,8 @@ public class LootBag : MonoBehaviour
                 rb.linearDamping = 2f; // Adjust this value as needed
             }
         }
+        
+        GameInfo.Score += 100 * multiplier * localLootMultiplier * PlayerInfo.PlayerLuck;
     }
 
 }

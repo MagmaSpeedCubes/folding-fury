@@ -79,7 +79,13 @@ public class PunishmentSpawner : MonoBehaviour
         // Calculate the new position of the spawner
         float radians = orbitAngle * Mathf.Deg2Rad;
         Vector3 offset = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians), 0) * orbitRadius;
-        transform.position = player.position + offset;
+        GameObject decoy = GameInfo.decoy;
+        if(decoy!=null){
+            transform.position = decoy.transform.position + offset;
+        }else{
+            transform.position = player.position + offset;
+        }
+        
     }
 
     private IEnumerator SpawnClusters()

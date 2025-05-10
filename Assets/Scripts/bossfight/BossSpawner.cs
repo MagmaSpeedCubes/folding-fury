@@ -21,7 +21,7 @@ public class BossSpawner : MonoBehaviour
     [SerializeField] private float damage = 15f;
     [SerializeField] private float spawnSpeed = 5f;
 
-    [SerializeField] private Transform player; // Reference to the player
+    private Transform player = PlayerInfo.playerTransform;
 
     [SerializeField] private float enemyLoot = 0f;
     
@@ -50,13 +50,19 @@ public class BossSpawner : MonoBehaviour
         if (player == null || !targetPlayer) return; // Ensure the player reference is valid
 
         // Calculate the direction to the player
-        Vector2 directionToPlayer = (player.position - transform.position).normalized;
+        GameObject decoy = GameInfo.decoy;
+        if(decoy != null){
+            Vector2 directionToPlayer = (decoy.transform.position - transform.position).normalized;
+            float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+            //target the decoy if present
+        }else{
+            Vector2 directionToPlayer = (player.position - transform.position).normalized;
+            float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+            //target the player if no decoy present
+        }
 
-        // Calculate the angle to rotate the spawner to face the player
-        float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
-
-        // Apply the rotation to the spawner
-        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     private IEnumerator SpawnClusters()
@@ -83,7 +89,13 @@ public class BossSpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        spawnDirection = (player.position - transform.position).normalized;
+        GameObject decoy = GameInfo.decoy;
+        if(decoy != null){
+            spawnDirection = (decoy.transform.position - transform.position).normalized;
+        }else{
+            spawnDirection = (player.position - transform.position).normalized;
+        }
+        
         // Instantiate the enemy at the spawner's position
         GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
 

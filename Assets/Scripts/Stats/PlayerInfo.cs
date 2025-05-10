@@ -1,7 +1,9 @@
 using UnityEngine;
 
-public class PlayerInfo
+public class PlayerInfo : MonoBehaviour
 {
+    public static Transform playerTransform;
+
     public static float PlayerLuck = 1f;
     public static float Absorption = 0f;
     public static float StartHealth = 100f;
@@ -44,13 +46,9 @@ public class PlayerInfo
     public static float MovementSpeed = 5f;
     public static float FireDamage = 0f;
 
-    public static int PImmortal = 0;
-    public static int PManiac = 0;
-    public static int PSprinter = 0;
-
-    public static float InkResistance = 0;
-    public static float KnifeResistance = 0;
-    public static float Resistance = 0;
+    public static float InkResistance = 0f;
+    public static float KnifeResistance = 0f;
+    public static float Resistance = 0f;
         /*
     CanFormChange: true,
     FormChangeDamage: 0,
@@ -60,11 +58,14 @@ public class PlayerInfo
 
 
     */
-
+    void Awake(){
+        playerTransform = transform;
+    }
     public static float getOriginalDelay(){
         return FoldTime;
     }
     public static void Reset(){
+        
         PlayerLuck = 1f;
         MaxHealth = GameInfo.MaxHealth;
         StartHealth = MaxHealth;
@@ -83,10 +84,6 @@ public class PlayerInfo
 
         MovementSpeed = GameInfo.MovementSpeed;
         FireDamage = 0f;
-
-        PImmortal = 0;
-        PManiac = 0;
-        PSprinter = 0;
 
         InkResistance = 0.1f;
         KnifeResistance = 0.1f;

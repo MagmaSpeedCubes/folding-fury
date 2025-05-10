@@ -19,7 +19,7 @@ public class Shield
         PlayerInfo.MovementSpeed *= 0.6f;
         PlayerInfo.InkResistance *= 0f;
         PlayerInfo.KnifeResistance *= 9f;
-        PlayerInfo.Resistance *= 9f;
+        PlayerInfo.Resistance *= 7f;
 
         Mods.Reactivate();
     }

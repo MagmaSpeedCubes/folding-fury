@@ -26,9 +26,14 @@ public class PlayerAttack : MonoBehaviour
         if (Random.Range(1, 101) > PlayerInfo.MissRate * 100)
         {
             // Create a new attack range visualization
-            GameObject attackRangeObject = CreateAttackRangeMesh();
+
+            
             Attack(); // Perform the attack
-            StartCoroutine(FadeOutAttackRange(attackRangeObject));
+            if(PlayerInfo.Modifier != -2){
+                GameObject attackRangeObject = CreateAttackRangeMesh();
+                StartCoroutine(FadeOutAttackRange(attackRangeObject));
+            }
+            
         }
         else
         {
@@ -142,6 +147,12 @@ public class PlayerAttack : MonoBehaviour
                     rb.AddForce(directionToTarget * knockbackForce, ForceMode2D.Impulse);
                 }
             }
+        }
+
+        if(PlayerInfo.Form == "Box"){
+            Box.boxAttack();
+        }else if(PlayerInfo.Form == "FortuneTeller"){
+            FortuneTeller.fortuneTellerAttack();
         }
     }
 }

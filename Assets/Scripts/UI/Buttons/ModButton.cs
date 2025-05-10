@@ -84,13 +84,11 @@ public class ModButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (AvatarInfo.HighScores[GameInfo.SelectedLevel][0] > 0)
         {
+            
             if (state == 0)
             {
+                button.GetComponent<Image>().sprite = unselected;
                 state = 1;
-                instance.audio.loop = false;
-                audio.volume = AvatarInfo.SFXVolume;
-                audio.clip = unlock;
-                audio.Play();
             }
         }else{
             button.GetComponent<Image>().sprite = lockedSprite;

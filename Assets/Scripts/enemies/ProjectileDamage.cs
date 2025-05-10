@@ -30,6 +30,7 @@ public class ProjectileDamage : MonoBehaviour
 
         // Get the PlayerHealth component from the collided object
         PlayerHealth playerHealth = collision.GetComponent<PlayerHealth>();
+        DecoyHealth decoyHealth = collision.GetComponent<DecoyHealth>();
         if (playerHealth != null && !onCooldown)
         {
             // Call the Damage method on the PlayerHealth component
@@ -44,7 +45,22 @@ public class ProjectileDamage : MonoBehaviour
             }
             onCooldown = true;
             StartCoroutine(resetCooldown());
+        }else if (decoyHealth != null && !onCooldown)
+        {
+
+            decoyHealth.Damage(damage, attackType);
+            hits -= 1;
+            if (hits <= 0)
+            {
+                EnemyHealth eh = GetComponent<EnemyHealth>();
+                if(eh!=null){
+                    eh.Die(true);
+                }
+            }
+            onCooldown = true;
+            StartCoroutine(resetCooldown());
         }
+        
     }
 
     private IEnumerator resetCooldown()

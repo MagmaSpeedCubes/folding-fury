@@ -42,6 +42,8 @@ public class GameInfo
 
     public static int NumLevels = 8;
     public static int NumModifiers = 6;
+
+    public static GameObject decoy;
     //1-16 = respective levels
     //0 = level selector
     //-1 = mod selector
@@ -94,6 +96,8 @@ public class GameInfo
         DiamondsCollected = 0;
 
         DamageTaken = 0f;
+
+        decoy = null;
     }
 
     public static void ResetLevel(){
@@ -125,7 +129,7 @@ public class GameInfo
         DiamondsCollected = 0;
 
         DamageTaken = 0f;
-
+        decoy = null;
         
     }
 
