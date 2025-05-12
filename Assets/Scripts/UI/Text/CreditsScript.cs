@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class CreditsScript : MonoBehaviour
 {
-    [SerializeField] private float scrollSpeed = 40f;
+    [SerializeField] private float scrollSpeed;
     [SerializeField] private Canvas canvas;
     [SerializeField] private AudioClip creditsMusic;
     [SerializeField] private AudioSource audio;
@@ -28,6 +28,7 @@ public class CreditsScript : MonoBehaviour
 
     void Start(){
 
+        scrollSpeed *= Screen.height / 100;
         canvas.enabled = false;
         scrolling = false;
         initialPosition = transform.position;
@@ -46,6 +47,7 @@ public class CreditsScript : MonoBehaviour
         instance.scrolling = true;
 
         if(!instance.audio.isPlaying){
+            instance.audio.loop = true;
             instance.audio.clip = instance.creditsMusic;
             instance.audio.volume = AvatarInfo.MusicVolume;
             instance.audio.Play();

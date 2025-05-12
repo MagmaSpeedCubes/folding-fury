@@ -40,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
         GameInfo.DamageTaken += damageAmount;
 
         if (PlayerInfo.CurrentHealth <= 0 && GameInfo.GameMode != -3){
+            Debug.Log("Dying");
             Die();
             
         }

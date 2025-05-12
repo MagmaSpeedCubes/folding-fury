@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9141989938327200701}
   - component: {fileID: 2592662963145356960}
   - component: {fileID: 8375160169281647421}
+  - component: {fileID: -7042827274300865424}
   m_Layer: 3
   m_Name: decoyPrefab
   m_TagString: Untagged
@@ -178,3 +179,15 @@ MonoBehaviour:
   damage: {fileID: 8300000, guid: 1818f2f251f6749129a1c1d2a5e16cb5, type: 3}
   lowHealth: {fileID: 8300000, guid: 1818f2f251f6749129a1c1d2a5e16cb5, type: 3}
   death: {fileID: 8300000, guid: 1818f2f251f6749129a1c1d2a5e16cb5, type: 3}
+--- !u!114 &-7042827274300865424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6313013366164877580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2971aa5e8c54a4c3caa416aefc1b5a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

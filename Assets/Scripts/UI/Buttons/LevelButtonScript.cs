@@ -39,6 +39,8 @@ public class LevelButtonScript : MonoBehaviour
 
 
     private bool isUnlocked(){
+        return true;
+        //for debugging purposes
         if(level==1){return true;}
         return AvatarInfo.HighScores[level-1][0] > 0;
     }

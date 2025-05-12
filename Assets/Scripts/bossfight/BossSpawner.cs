@@ -89,12 +89,16 @@ public class BossSpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        GameObject decoy = GameInfo.decoy;
-        if(decoy != null){
-            spawnDirection = (decoy.transform.position - transform.position).normalized;
-        }else{
-            spawnDirection = (player.position - transform.position).normalized;
+        
+        if(targetPlayer){
+            GameObject decoy = GameInfo.decoy;
+            if(decoy != null){
+                spawnDirection = (decoy.transform.position - transform.position).normalized;
+            }else{
+                spawnDirection = (player.position - transform.position).normalized;
+            }
         }
+
         
         // Instantiate the enemy at the spawner's position
         GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);

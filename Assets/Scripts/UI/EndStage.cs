@@ -110,17 +110,32 @@ public class EndStage : MonoBehaviour
         
     }
 
-    public static int getCurrentScore(int level, int modifier){
-        
+    public static int getCurrentScore(int level, int modifier) {
         int[] scoreArray;
-        if(modifier < 0){
+        if (modifier < 0) {
+            if (AvatarInfo.ReversedHighScores == null || AvatarInfo.ReversedHighScores.Length <= level || AvatarInfo.ReversedHighScores[level] == null) {
+                Debug.LogError($"ReversedHighScores array is not initialized for level {level}");
+                return 0; // Default score
+            }
             scoreArray = AvatarInfo.ReversedHighScores[level];
-        }else{
+        } else {
+            if (AvatarInfo.HighScores == null || AvatarInfo.HighScores.Length <= level || AvatarInfo.HighScores[level] == null) {
+                Debug.LogError($"HighScores array is not initialized for level {level}");
+                return 0; // Default score
+            }
             scoreArray = AvatarInfo.HighScores[level];
         }
 
-        return scoreArray[Math.Abs(modifier)];
+        if (scoreArray.Length <= Math.Abs(modifier)) {
+            Debug.LogError($"Modifier {modifier} is out of bounds for level {level}");
+            return 0; // Default score
+        }
 
+        if (scoreArray.Length <= Math.Abs(modifier)) {
+            Debug.LogError($"Modifier {modifier} is out of bounds for level {level}");
+            return 0; // Default score
+        }
+        return scoreArray[Math.Abs(modifier)];
     }
 
     public static void saveRecord(int level, int modifier, int score){
