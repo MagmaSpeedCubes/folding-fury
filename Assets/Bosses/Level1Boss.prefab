@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6428418136193213428}
   - component: {fileID: 2117470152659064080}
   - component: {fileID: 8339135685833437712}
+  - component: {fileID: 381253182207303578}
   m_Layer: 7
   m_Name: BossSpawner
   m_TagString: Untagged
@@ -345,6 +346,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d23c83ea9e7d147a195de298d4e604b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &381253182207303578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2604094675901582095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2971aa5e8c54a4c3caa416aefc1b5a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3101246758877674157
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,6 +374,7 @@ GameObject:
   - component: {fileID: 1047390865794574630}
   - component: {fileID: 6776335077060943599}
   - component: {fileID: 6723939552007838832}
+  - component: {fileID: 4562880384407456567}
   m_Layer: 7
   m_Name: BossSpawner (2)
   m_TagString: Untagged
@@ -677,6 +691,18 @@ MonoBehaviour:
   healthText: {fileID: 461124331697125918}
   mainSprite: {fileID: -5246365264398952455, guid: 100e4fe5cb51a49fdb79a3c1ada19223, type: 3}
   damagedSprite: {fileID: -9086124482487604377, guid: db425f09fdabd45989d588cf05b91ff7, type: 3}
+--- !u!114 &4562880384407456567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3101246758877674157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2971aa5e8c54a4c3caa416aefc1b5a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4981510144141935800
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,6 +909,7 @@ GameObject:
   - component: {fileID: 5955397913778867498}
   - component: {fileID: 9125132129676468571}
   - component: {fileID: 5915801398448451241}
+  - component: {fileID: 5383551502240678550}
   m_Layer: 7
   m_Name: BossSpawner (1)
   m_TagString: Untagged
@@ -1209,6 +1236,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d23c83ea9e7d147a195de298d4e604b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5383551502240678550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5216747897707963435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2971aa5e8c54a4c3caa416aefc1b5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5691082091476782441
@@ -1662,6 +1701,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8552745063161415113}
   - component: {fileID: 6865685236979431104}
+  - component: {fileID: 7799449574580837394}
   m_Layer: 7
   m_Name: Phase1
   m_TagString: Untagged
@@ -1706,3 +1746,15 @@ MonoBehaviour:
   - {fileID: 3101246758877674157}
   phaseLength: 0
   tick: 0
+--- !u!114 &7799449574580837394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8500360947045640657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2971aa5e8c54a4c3caa416aefc1b5a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

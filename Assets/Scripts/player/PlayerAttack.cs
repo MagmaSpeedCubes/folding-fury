@@ -79,11 +79,15 @@ public class PlayerAttack : MonoBehaviour
         GameObject attackRangeObject = new GameObject("AttackRange");
         attackRangeObject.transform.SetParent(transform);
         attackRangeObject.transform.localPosition = Vector3.zero;
+        
 
         // Add MeshFilter and MeshRenderer components
         MeshFilter meshFilter = attackRangeObject.AddComponent<MeshFilter>();
         MeshRenderer meshRenderer = attackRangeObject.AddComponent<MeshRenderer>();
         meshRenderer.material = new Material(attackRangeMaterial); // Create a new instance of the material
+
+        meshRenderer.sortingLayerName = "UI"; // Replace "UI" with your desired sorting layer name
+        meshRenderer.sortingOrder = 10;  
 
         // Create and assign the mesh
         Mesh attackRangeMesh = new Mesh();

@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip damage;
     public AudioClip lowHealth;
     public AudioClip death;
+    public AudioClip hazard;
 
     void Awake()
     {
@@ -44,7 +45,12 @@ public class PlayerHealth : MonoBehaviour
             Die();
             
         }
-        PlayDamageSound();
+        if(attackType == "Hazard"){
+            PlayHazardSound();
+        }else{
+            PlayDamageSound();
+        }
+        
     }
     public void Die(){
         PlayDeathSound();
@@ -90,6 +96,23 @@ public class PlayerHealth : MonoBehaviour
             // Configure the AudioSource
             tempAudio.clip = damage;
             tempAudio.volume = AvatarInfo.SFXVolume;
+            tempAudio.Play();
+
+            // Destroy the temporary GameObject after the sound finishes
+            Destroy(soundObject, damage.length);
+        }
+    }
+
+    private void PlayHazardSound(){
+        if (death != null)
+        {
+            // Create a temporary GameObject to play the sound
+            GameObject soundObject = new GameObject("HazardSound");
+            AudioSource tempAudio = soundObject.AddComponent<AudioSource>();
+
+            // Configure the AudioSource
+            tempAudio.clip = hazard;
+            tempAudio.volume = AvatarInfo.SFXVolume / 2f;
             tempAudio.Play();
 
             // Destroy the temporary GameObject after the sound finishes

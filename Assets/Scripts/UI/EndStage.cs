@@ -7,6 +7,9 @@ using TMPro;
 public class EndStage : MonoBehaviour
 {
     private static EndStage Instance {get; set;}
+
+    private AudioSource audio;
+    public AudioClip winClip;
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private TextMeshProUGUI mainText;
     [SerializeField] private TextMeshProUGUI iscoreText;
@@ -16,18 +19,23 @@ public class EndStage : MonoBehaviour
     [SerializeField] private TextMeshProUGUI badgesText;
     [SerializeField] private TextMeshProUGUI fscoreText;
 
+
+
     private void Awake(){
         if(Instance == null){
             Instance = this;
         }else{
             Destroy(gameObject);
         }
+        audio = GetComponent<AudioSource>();
     }
 
 
 
 
     public static void CompleteStage(bool win){
+        
+        Timer.Reset();
 
         GameInfo.BossFight = false;
 
@@ -41,6 +49,9 @@ public class EndStage : MonoBehaviour
         int mod = PlayerInfo.Modifier;
 
         if(win){
+            Instance.audio.clip = Instance.winClip;
+            Instance.audio.volume = AvatarInfo.SFXVolume;
+            Instance.audio.Play();
             unlockAchievements(level, mod, (int)GameInfo.DamageTaken);
             Instance.mainText.text = "Stage Complete";
         }else{

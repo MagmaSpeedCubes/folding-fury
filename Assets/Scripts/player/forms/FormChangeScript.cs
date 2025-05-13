@@ -72,6 +72,10 @@ public class FormChangeScript : MonoBehaviour
             }
         }
 
+        if(!CameraMoveUp.inLevel){
+            canFormChange = true;
+        }
+
     }
     private IEnumerator ChangeToFan(){
         if(animation==null){

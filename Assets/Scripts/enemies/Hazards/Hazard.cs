@@ -40,8 +40,12 @@ public class Hazard : MonoBehaviour
         }
     }
 
-    bool inRange(){
-        return Vector3.Distance(transform.position, player.transform.position) <= radius;
+    bool inRange()
+    {
+        Vector2 hazardPosition = new Vector2(transform.position.x, transform.position.y);
+        Vector2 playerPosition = new Vector2(player.transform.position.x, player.transform.position.y);
+
+        return Vector2.Distance(hazardPosition, playerPosition) <= radius;
     }
     
     bool alive(){

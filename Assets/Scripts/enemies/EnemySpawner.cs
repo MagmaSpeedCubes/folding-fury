@@ -36,6 +36,7 @@ public class EnemySpawner : MonoBehaviour
         // Check if the spawner should activate
         if (GameInfo.GameMode == level && Timer.GetTime() >= activationTime && !hasActivated)
         {
+            Debug.Log("Activated at time " + Timer.GetTime());
             hasActivated = true; // Prevent multiple activations for the same condition
             spawnCoroutine = StartCoroutine(SpawnClusters());
         }
