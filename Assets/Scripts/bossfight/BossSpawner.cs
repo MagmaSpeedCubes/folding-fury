@@ -89,23 +89,30 @@ public class BossSpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        
-        if(targetPlayer){
+        if (targetPlayer)
+        {
             GameObject decoy = GameInfo.decoy;
-            if(decoy != null){
+            if (decoy != null)
+            {
                 spawnDirection = (decoy.transform.position - transform.position).normalized;
-            }else{
+            }
+            else
+            {
                 spawnDirection = (player.position - transform.position).normalized;
             }
         }
 
-        
-        // Instantiate the enemy at the spawner's position
-        GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        // Calculate the spawn position with an offset in the spawning direction
+        float spawnOffset = 2f; // Adjust this value as needed to avoid collisions
+        Vector3 spawnPosition = transform.position + (Vector3)spawnDirection * spawnOffset;
+
+        // Instantiate the enemy at the calculated position
+        GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
 
         EnemyHealth eh = enemy.GetComponent<EnemyHealth>();
         EnemyMovement em = enemy.GetComponent<EnemyMovement>();
         ProjectileDamage pd = enemy.GetComponent<ProjectileDamage>();
+
         if (eh != null && em != null)
         {
             eh.damagedSprite = damagedSprite;
@@ -144,4 +151,5 @@ public class BossSpawner : MonoBehaviour
         GameInfo.numEnemies += 1;
         GameInfo.EnemiesSpawned += 1;
     }
+
 }

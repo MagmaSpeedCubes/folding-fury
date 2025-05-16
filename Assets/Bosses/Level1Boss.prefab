@@ -113,7 +113,7 @@ MonoBehaviour:
   spawnInterval: 0.5
   clusterCooldown: 5
   spawnDirection: {x: 0, y: -1}
-  targetPlayer: 1
+  targetPlayer: 0
   enemySprite: {fileID: -1455979183875408738, guid: 77b4386b7c3a146c1a58683ec8b930d1, type: 3}
   angrySprite: {fileID: -1250738297446338832, guid: c07dc1c7fc26e4c37a28e30906b86206, type: 3}
   enragedSprite: {fileID: -5320369613074305350, guid: 8ccd7af0dda934d0c94ac4fd813dd35f, type: 3}
@@ -1005,7 +1005,7 @@ MonoBehaviour:
   spawnInterval: 0.5
   clusterCooldown: 5
   spawnDirection: {x: 0, y: -1}
-  targetPlayer: 1
+  targetPlayer: 0
   enemySprite: {fileID: -1455979183875408738, guid: 77b4386b7c3a146c1a58683ec8b930d1, type: 3}
   angrySprite: {fileID: -1250738297446338832, guid: c07dc1c7fc26e4c37a28e30906b86206, type: 3}
   enragedSprite: {fileID: -5320369613074305350, guid: 8ccd7af0dda934d0c94ac4fd813dd35f, type: 3}
@@ -1297,7 +1297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  activationTime: 188
+  activationTime: 178
   hubs:
   - {fileID: 8500360947045640657}
   phases: 1

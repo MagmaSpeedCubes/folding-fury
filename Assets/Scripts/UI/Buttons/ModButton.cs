@@ -61,8 +61,9 @@ public class ModButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         originalRotation = transform.rotation;
         instance = this;
-        xpos = transform.position.x;
-        ypos = transform.position.y;
+        RectTransform rectTransform = GetComponent<RectTransform>(); 
+        xpos = rectTransform.anchoredPosition.x;
+        ypos = rectTransform.anchoredPosition.y;
         audio = GetComponent<AudioSource>();
 
 
@@ -72,6 +73,7 @@ public class ModButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             button.GetComponent<Image>().sprite = unselected;
             state = 1;
+
         }
         else
         {
@@ -89,6 +91,9 @@ public class ModButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             {
                 button.GetComponent<Image>().sprite = unselected;
                 state = 1;
+                // RectTransform rectTransform = GetComponent<RectTransform>(); // Get the RectTransform
+                // xpos = rectTransform.anchoredPosition.x;
+                // ypos = rectTransform.anchoredPosition.y;
             }
         }else{
             button.GetComponent<Image>().sprite = lockedSprite;
@@ -158,7 +163,9 @@ public class ModButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
 
     private IEnumerator moveTo(float x, float y, float tme){
-        Vector3 startPosition = transform.position; // Starting position
+        RectTransform rectTransform = GetComponent<RectTransform>(); 
+
+        Vector3 startPosition = rectTransform.anchoredPosition; // Starting position
         Vector3 targetPosition = new Vector3(x, y, 0); // Target position
         float elapsedTime = 0f; // Time elapsed since the start of the movement
 
@@ -168,14 +175,15 @@ public class ModButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             elapsedTime += Time.deltaTime;
 
             // Interpolate position based on elapsed time
-            transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / tme);
+            rectTransform.anchoredPosition = Vector3.Lerp(startPosition, targetPosition, elapsedTime / tme);
 
             // Wait for the next frame
             yield return null;
         }
 
         // Ensure the final position is exactly the target position
-        transform.position = targetPosition;
+        rectTransform.anchoredPosition = targetPosition;
+
     }
 
     
@@ -261,8 +269,9 @@ public class ModButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             audio.volume = AvatarInfo.SFXVolume;
             audio.clip = reverse;
             audio.Play();
-            float x = CentralMod.transform.position.x;
-            float y = CentralMod.transform.position.y;
+            RectTransform rectTransform = CentralMod.GetComponent<RectTransform>(); 
+            float x = rectTransform.anchoredPosition.x;
+            float y = rectTransform.anchoredPosition.y;
             StartCoroutine(moveTo(x, y, 0.15f));
             ModTextObject.text = reverseModText;
             ReverseModTextObject.text = reverseModText;

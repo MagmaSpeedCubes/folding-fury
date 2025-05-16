@@ -10,6 +10,7 @@ public class PrologueDialogue : MonoBehaviour
 
     private Dialogue dialogue;
     private bool isDialogueRunning = false; // Flag to track if the coroutine is running
+    private bool active = false;
 
     void Start()
     {
@@ -20,8 +21,10 @@ public class PrologueDialogue : MonoBehaviour
     {
         if (GameInfo.GameMode == -3 && dialogue != null)
         {
-            if (index == 0)
+            if (index == 0 && !active)
             {
+                active = true;
+                Timer.Reset();
                 dialogue.SetIndexFromLevel();
                 Airplane.Instantiate();  
             }
@@ -47,15 +50,18 @@ public class PrologueDialogue : MonoBehaviour
                 GameInfo.GameMode = 0;
                 GameInfo.BossFight = false;
                 CameraMoveUp.inLevel = false;
+                active = false;
+
             }
         }
     }
 
     private IEnumerator ShowNextLineWrapper()
     {
-        isDialogueRunning = true; // Set the flag to true
+        isDialogueRunning = true; 
         yield return StartCoroutine(dialogue.ShowNextLine());
-        isDialogueRunning = false; // Reset the flag after the coroutine finishes
+        isDialogueRunning = false;
+        
 
     }
 }

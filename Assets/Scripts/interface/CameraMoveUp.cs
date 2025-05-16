@@ -131,7 +131,11 @@ public class CameraMoveUp : MonoBehaviour
             HideCanvases();
             ShowCanvas(CanvasList[6]);
         }
-        transform.position = targetPosition;
+
+        if(!GameInfo.BossFight){
+            transform.position = targetPosition;
+        }
+        
     
 
         

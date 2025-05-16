@@ -18,32 +18,59 @@ public class Dialogue : MonoBehaviour
     public float volume = 5f;
 
     [SerializeField] private CanvasGroup canvasGroup;
+    private Coroutine dialogueCoroutine;
+
+
 
     private int index;
 
-    void Start(){
-
+    void Start()
+    {
         audio = GetComponent<AudioSource>();
 
-        textComponent.text = string.Empty;
-        
-        
+        if (canvasGroup != null)
+        {
+            canvasGroup.alpha = 0f;
+        }
+
+        if (textComponent != null)
+        {
+            textComponent.text = string.Empty;
+            textComponent.ForceMeshUpdate();
+        }
+
+        // Preload audio clips
+        foreach (var clip in sounds)
+        {
+            if (clip != null)
+            {
+                Debug.Log($"Preloading audio clip: {clip.name}");
+            }
+        }
     }
 
-    void StartDialogue(){
-        StartCoroutine(TypeLine());
+    void StartDialogue()
+    {
+        if (dialogueCoroutine != null)
+        {
+            StopCoroutine(dialogueCoroutine); // Stop any existing coroutine
+        }
+        dialogueCoroutine = StartCoroutine(TypeLine());
     }
 
     public IEnumerator TypeLine(){
-        audio.volume = AvatarInfo.SFXVolume*volume;
-        audio.clip = sounds[index];
-        audio.Play();
-        if(index!=null){
-            foreach(char c in lines[index]){
-                textComponent.text += c;
-                yield return new WaitForSeconds(1/textSpeed);
-            }
-        }
+        
+        // audio.volume = AvatarInfo.SFXVolume*volume;
+        // audio.clip = sounds[index];
+        // audio.Play();
+        // Debug.Log("Audio Played");
+        // if(index!=null){
+        //     foreach(char c in lines[index]){
+        //         textComponent.text += c;
+        //         yield return new WaitForSeconds(1/textSpeed);
+        //     }
+        // }
+        yield return new WaitForSeconds(1/textSpeed);
 
     }
 
@@ -65,6 +92,7 @@ public class Dialogue : MonoBehaviour
         audio.volume = AvatarInfo.SFXVolume * volume;
         audio.clip = sounds[index];
         audio.Play();
+        Debug.Log("Audio Played");
 
         // Reveal the text over time
         elapsedTime = 0f;

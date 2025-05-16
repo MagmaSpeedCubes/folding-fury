@@ -11,7 +11,7 @@ public class FortuneTeller
         PlayerInfo.FoldTime *= 3f;
 
         PlayerInfo.AttackAngle *= 0f;
-        PlayerInfo.AttackDamage *= 0.005f;
+        PlayerInfo.AttackDamage *= 1f;
         PlayerInfo.AttackRange *= 0f;
         PlayerInfo.AttackRate *= 0.08f;
         PlayerInfo.Knockback *= 0f;
