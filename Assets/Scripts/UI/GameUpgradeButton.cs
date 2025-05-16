@@ -63,13 +63,10 @@ public class GameUpgradeButton : MonoBehaviour
         var field = typeof(GameInfo).GetField(statName);
         if (field != null)
         {
-            field.SetValue(null, statValue); // Assuming GameInfo fields are static
-            Debug.Log($"Field '{statName}' set to {statValue}.");
+            field.SetValue(null, statValue); 
+            
         }
-        else
-        {
-            Debug.LogError($"Field '{statName}' not found in GameInfo.");
-        }
+
     }
 
 
