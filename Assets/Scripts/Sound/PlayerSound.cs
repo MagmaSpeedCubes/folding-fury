@@ -63,6 +63,12 @@ public class PlayerSound : MonoBehaviour
                 playLoopedTrack(prologue, AvatarInfo.MusicVolume);
                 currentClip = "Prologue";
             }
+        }else{
+            if (!audio.isPlaying||currentClip != "Menu" && GameInfo.GameMode != -10)
+            {
+                playLoopedTrack(menu, AvatarInfo.MusicVolume);
+                currentClip = "Menu";
+            }
         }
         if(!CameraMoveUp.inLevel){
             audio.Stop();
@@ -86,6 +92,7 @@ public class PlayerSound : MonoBehaviour
         audio.volume = volume;
         audio.clip = clip;
         audio.Play();
+
 
     }
 

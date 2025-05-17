@@ -8,7 +8,9 @@ public class CreditsScript : MonoBehaviour
     [SerializeField] private float scrollSpeed;
     [SerializeField] private Canvas canvas;
     [SerializeField] private AudioClip creditsMusic;
+    [SerializeField] private AudioClip menuMusic;
     [SerializeField] private AudioSource audio;
+    
 
     private bool scrolling;
     private Vector3 initialPosition;
@@ -42,6 +44,8 @@ public class CreditsScript : MonoBehaviour
     }
 
     public static void ScrollCredits(){
+        GameInfo.GameMode = -20;
+        Debug.Log("Game Mode:" + GameInfo.GameMode);
         instance.canvas.enabled = true;
         instance.transform.position = instance.initialPosition;
         instance.scrolling = true;
@@ -56,11 +60,15 @@ public class CreditsScript : MonoBehaviour
     }
 
     public static void StopScrolling(){
+        GameInfo.GameMode = 0;
+        Debug.Log("Game Mode:" + GameInfo.GameMode);
         instance.canvas.enabled = false;
         instance.scrolling = false;
         instance.transform.position = instance.initialPosition;
 
         instance.audio.Stop();
+
+
     }
 
 

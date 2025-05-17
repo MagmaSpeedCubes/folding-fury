@@ -27,10 +27,7 @@ public class UpgradePage : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     public static void SetUpgradePage(string statName, float statLevel, float increase, int pCost, int cCost, int index){
         instance.canvas.enabled = true;

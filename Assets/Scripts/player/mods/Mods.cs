@@ -48,9 +48,6 @@ public class Mods
 
         return "";
 
-
-        // fix later
-
     }
     public static string GetModName()
     {
