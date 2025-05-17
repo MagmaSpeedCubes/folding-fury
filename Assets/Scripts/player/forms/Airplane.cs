@@ -12,7 +12,7 @@ public class Airplane
 
         PlayerInfo.AttackAngle *= 0.2f;
         PlayerInfo.AttackDamage *= 2f;
-        PlayerInfo.AttackRange *= 3f;
+        PlayerInfo.AttackRange *= 4f;
         PlayerInfo.AttackRate *= 1f;
         PlayerInfo.Knockback *= 0.1f;
 

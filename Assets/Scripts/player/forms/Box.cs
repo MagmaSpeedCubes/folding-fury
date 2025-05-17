@@ -21,11 +21,12 @@ public class Box : MonoBehaviour
         PlayerInfo.Form = "Box";
 
         PlayerInfo.RegenRate *= 1f;
+        PlayerInfo.MaxHealth *= 2f;
         PlayerInfo.Size *= 1f;
         PlayerInfo.FoldTime *= 1f;
 
-        PlayerInfo.AttackAngle *= 1f;
-        PlayerInfo.AttackDamage *= 1f;
+        PlayerInfo.AttackAngle *= 4f;
+        PlayerInfo.AttackDamage *= 1.5f;
         PlayerInfo.AttackRange *= 0.8f;
         PlayerInfo.AttackRate *= 0.2f;
         PlayerInfo.Knockback *= 0.5f;

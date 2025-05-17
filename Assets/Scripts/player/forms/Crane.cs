@@ -11,9 +11,9 @@ public class Crane
         PlayerInfo.FoldTime *= 2f;
 
         PlayerInfo.AttackAngle *= 1.5f;
-        PlayerInfo.AttackDamage *= 0.6f;
+        PlayerInfo.AttackDamage *= 0.8f;
         PlayerInfo.AttackRange *= 4f;
-        PlayerInfo.AttackRate *= 1f;
+        PlayerInfo.AttackRate *= 1.5f;
         PlayerInfo.Knockback *= 0.5f;
 
         PlayerInfo.MovementSpeed *= 1.5f;

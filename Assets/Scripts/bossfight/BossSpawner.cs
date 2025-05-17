@@ -103,7 +103,7 @@ public class BossSpawner : MonoBehaviour
         }
 
         // Calculate the spawn position with an offset in the spawning direction
-        float spawnOffset = 2f; // Adjust this value as needed to avoid collisions
+        float spawnOffset = 1f; // Adjust this value as needed to avoid collisions
         Vector3 spawnPosition = transform.position + (Vector3)spawnDirection * spawnOffset;
 
         // Instantiate the enemy at the calculated position

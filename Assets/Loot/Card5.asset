@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootSprite: {fileID: 1583697572503821759, guid: 9c6a9d1aac0414b2b8926427c84ee34c, type: 3}
   lootName: Card-5
-  dropChance: 0.0625
+  dropChance: 0

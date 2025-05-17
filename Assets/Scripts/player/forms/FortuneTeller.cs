@@ -13,7 +13,7 @@ public class FortuneTeller
         PlayerInfo.AttackAngle *= 0f;
         PlayerInfo.AttackDamage *= 1f;
         PlayerInfo.AttackRange *= 0f;
-        PlayerInfo.AttackRate *= 0.08f;
+        PlayerInfo.AttackRate *= 0.2f;
         PlayerInfo.Knockback *= 0f;
 
         PlayerInfo.MovementSpeed *= 1f;
@@ -29,6 +29,7 @@ public class FortuneTeller
     }
 
     public static void fortuneTellerAttack(){
-        PlayerInfo.PlayerLuck += PlayerInfo.AttackDamage;
+        PlayerInfo.PlayerLuck += (PlayerInfo.AttackDamage / 100);
+        Debug.Log("Player Luck:" + PlayerInfo.PlayerLuck);
     }
 }
