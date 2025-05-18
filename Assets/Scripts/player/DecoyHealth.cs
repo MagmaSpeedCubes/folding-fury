@@ -18,10 +18,6 @@ public class DecoyHealth : MonoBehaviour
         {
             instance = this;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 
     private void Start(){

@@ -22,6 +22,7 @@ public class Box : MonoBehaviour
 
         PlayerInfo.RegenRate *= 1f;
         PlayerInfo.MaxHealth *= 2f;
+        PlayerInfo.StartHealth *= 2f;
         PlayerInfo.Size *= 1f;
         PlayerInfo.FoldTime *= 1f;
 
@@ -53,6 +54,7 @@ public class Box : MonoBehaviour
         if (GameInfo.decoy != null)
         {
             Debug.Log("Destroying old decoy");
+            DecoyHealth.instance = null;
             Destroy(GameInfo.decoy);
         }
 
