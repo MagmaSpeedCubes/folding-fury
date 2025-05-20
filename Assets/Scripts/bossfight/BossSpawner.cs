@@ -94,12 +94,19 @@ public class BossSpawner : MonoBehaviour
             GameObject decoy = GameInfo.decoy;
             if (decoy != null)
             {
+                // Target the decoy
                 spawnDirection = (decoy.transform.position - transform.position).normalized;
             }
             else
             {
+                // Target the player
                 spawnDirection = (player.position - transform.position).normalized;
             }
+        }
+        else
+        {
+            // Always spawn enemies downwards
+            spawnDirection = Vector3.down; // World space downward direction
         }
 
         // Calculate the spawn position with an offset in the spawning direction
@@ -151,5 +158,4 @@ public class BossSpawner : MonoBehaviour
         GameInfo.numEnemies += 1;
         GameInfo.EnemiesSpawned += 1;
     }
-
 }

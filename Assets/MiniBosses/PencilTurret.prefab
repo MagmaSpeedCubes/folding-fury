@@ -328,7 +328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: {fileID: 8300000, guid: c8e5af7ee4997458bb1c6b701a855200, type: 3}
   death: {fileID: 8300000, guid: dcf076d4e280a45b78773ec685db0701, type: 3}
-  maxHealth: 800
+  maxHealth: 500
   currentHealth: 0
   healthText: {fileID: 6143549974374364034}
   mainSprite: {fileID: -8092329222513298408, guid: 94ff0c39493a648bcab822865ea5f236, type: 3}
