@@ -1790,7 +1790,6 @@ GameObject:
   - component: {fileID: 6489215988085624556}
   - component: {fileID: 6088194456511831131}
   - component: {fileID: 6330224904806844538}
-  - component: {fileID: 3996386518269040620}
   m_Layer: 7
   m_Name: BossSpawner (6)
   m_TagString: Untagged
@@ -2102,7 +2101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: {fileID: 8300000, guid: c8e5af7ee4997458bb1c6b701a855200, type: 3}
   death: {fileID: 8300000, guid: dcf076d4e280a45b78773ec685db0701, type: 3}
-  maxHealth: 2000
+  maxHealth: 1000
   currentHealth: 0
   healthText: {fileID: 5849562867882570394}
   mainSprite: {fileID: -8092329222513298408, guid: 94ff0c39493a648bcab822865ea5f236, type: 3}
@@ -2119,20 +2118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2971aa5e8c54a4c3caa416aefc1b5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3996386518269040620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2292903910724946581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c7f8e4e6a49a4aba9e6b963b09f6603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  angle: 30
 --- !u!1 &3351340753518538384
 GameObject:
   m_ObjectHideFlags: 0
@@ -2684,7 +2669,6 @@ GameObject:
   - component: {fileID: 5621980718749553891}
   - component: {fileID: 2085270890536245896}
   - component: {fileID: 5065537309912690174}
-  - component: {fileID: 5714408020136153322}
   m_Layer: 7
   m_Name: BossSpawner (7)
   m_TagString: Untagged
@@ -2996,7 +2980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: {fileID: 8300000, guid: c8e5af7ee4997458bb1c6b701a855200, type: 3}
   death: {fileID: 8300000, guid: dcf076d4e280a45b78773ec685db0701, type: 3}
-  maxHealth: 2000
+  maxHealth: 1000
   currentHealth: 0
   healthText: {fileID: 270175358357056333}
   mainSprite: {fileID: -8092329222513298408, guid: 94ff0c39493a648bcab822865ea5f236, type: 3}
@@ -3013,20 +2997,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2971aa5e8c54a4c3caa416aefc1b5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5714408020136153322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4728045237971713756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c7f8e4e6a49a4aba9e6b963b09f6603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  angle: 30
 --- !u!1 &4943256369293558745
 GameObject:
   m_ObjectHideFlags: 0
@@ -4835,7 +4805,6 @@ GameObject:
   - component: {fileID: 5627706789134423009}
   - component: {fileID: 6968762460268083909}
   - component: {fileID: 2003431122749563710}
-  - component: {fileID: 266248481251616820}
   m_Layer: 7
   m_Name: BossSpawner (5)
   m_TagString: Untagged
@@ -5147,7 +5116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: {fileID: 8300000, guid: c8e5af7ee4997458bb1c6b701a855200, type: 3}
   death: {fileID: 8300000, guid: dcf076d4e280a45b78773ec685db0701, type: 3}
-  maxHealth: 2000
+  maxHealth: 1000
   currentHealth: 0
   healthText: {fileID: 3212727699215405210}
   mainSprite: {fileID: -8092329222513298408, guid: 94ff0c39493a648bcab822865ea5f236, type: 3}
@@ -5164,20 +5133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2971aa5e8c54a4c3caa416aefc1b5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &266248481251616820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5714056923039501228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c7f8e4e6a49a4aba9e6b963b09f6603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  angle: 30
 --- !u!1 &5740539941296753915
 GameObject:
   m_ObjectHideFlags: 0
@@ -5461,7 +5416,6 @@ GameObject:
   - component: {fileID: 985659884284716860}
   - component: {fileID: 778025011071784513}
   - component: {fileID: 8656014234017075818}
-  - component: {fileID: 9203977171569440337}
   m_Layer: 7
   m_Name: BossSpawner (3)
   m_TagString: Untagged
@@ -5773,7 +5727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: {fileID: 8300000, guid: c8e5af7ee4997458bb1c6b701a855200, type: 3}
   death: {fileID: 8300000, guid: dcf076d4e280a45b78773ec685db0701, type: 3}
-  maxHealth: 2000
+  maxHealth: 1000
   currentHealth: 0
   healthText: {fileID: 8341616829158459721}
   mainSprite: {fileID: -8092329222513298408, guid: 94ff0c39493a648bcab822865ea5f236, type: 3}
@@ -5790,20 +5744,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2971aa5e8c54a4c3caa416aefc1b5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &9203977171569440337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6235013234050587194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c7f8e4e6a49a4aba9e6b963b09f6603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  angle: 30
 --- !u!1 &6470592461033115998
 GameObject:
   m_ObjectHideFlags: 0
@@ -7612,7 +7552,6 @@ GameObject:
   - component: {fileID: 126107710040343729}
   - component: {fileID: 4664402446603274531}
   - component: {fileID: 7364504547795581093}
-  - component: {fileID: 1509120498177221620}
   m_Layer: 7
   m_Name: BossSpawner (8)
   m_TagString: Untagged
@@ -7924,7 +7863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: {fileID: 8300000, guid: c8e5af7ee4997458bb1c6b701a855200, type: 3}
   death: {fileID: 8300000, guid: dcf076d4e280a45b78773ec685db0701, type: 3}
-  maxHealth: 2000
+  maxHealth: 1000
   currentHealth: 0
   healthText: {fileID: 4174268279851631102}
   mainSprite: {fileID: -8092329222513298408, guid: 94ff0c39493a648bcab822865ea5f236, type: 3}
@@ -7941,20 +7880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2971aa5e8c54a4c3caa416aefc1b5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1509120498177221620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8289138896492926727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c7f8e4e6a49a4aba9e6b963b09f6603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  angle: 30
 --- !u!1 &8610290013254892851
 GameObject:
   m_ObjectHideFlags: 0
@@ -8317,7 +8242,6 @@ GameObject:
   - component: {fileID: 1101863155262801147}
   - component: {fileID: 6441190271005709323}
   - component: {fileID: 7654957756051193381}
-  - component: {fileID: 4073898510806495498}
   m_Layer: 7
   m_Name: BossSpawner (4)
   m_TagString: Untagged
@@ -8629,7 +8553,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: {fileID: 8300000, guid: c8e5af7ee4997458bb1c6b701a855200, type: 3}
   death: {fileID: 8300000, guid: dcf076d4e280a45b78773ec685db0701, type: 3}
-  maxHealth: 2000
+  maxHealth: 1000
   currentHealth: 0
   healthText: {fileID: 7835535642741390518}
   mainSprite: {fileID: -8092329222513298408, guid: 94ff0c39493a648bcab822865ea5f236, type: 3}
@@ -8646,20 +8570,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2971aa5e8c54a4c3caa416aefc1b5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4073898510806495498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8780287303803152757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c7f8e4e6a49a4aba9e6b963b09f6603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  angle: 30
 --- !u!1 &8822309566953262569
 GameObject:
   m_ObjectHideFlags: 0
