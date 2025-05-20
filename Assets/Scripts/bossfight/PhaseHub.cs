@@ -20,8 +20,6 @@ public class PhaseHub : MonoBehaviour
         // Remove destroyed objects from the list
         phaseSpawners.RemoveAll(spawner => spawner == null);
 
-        Debug.Log("Spawners left: " + phaseSpawners.Count);
-
         // Check if all spawners are destroyed
         if (phaseSpawners.Count == 0 && active)
         {
