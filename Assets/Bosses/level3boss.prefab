@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: 2433203539265078981}
   - component: {fileID: 8717290070554817253}
   - component: {fileID: 720034535241434124}
+  - component: {fileID: 3111454825565230914}
   m_Layer: 7
   m_Name: BossSpawner (2)
   m_TagString: Untagged
@@ -368,7 +369,7 @@ MonoBehaviour:
   spawnInterval: 0.8
   clusterCooldown: 4
   spawnDirection: {x: 1, y: 0}
-  targetPlayer: 1
+  targetPlayer: 0
   enemySprite: {fileID: -6978477448049373393, guid: 3bd246b13ea424f868636c3de5d6912e, type: 3}
   angrySprite: {fileID: -6978477448049373393, guid: 3bd246b13ea424f868636c3de5d6912e, type: 3}
   enragedSprite: {fileID: -6978477448049373393, guid: 3bd246b13ea424f868636c3de5d6912e, type: 3}
@@ -377,6 +378,8 @@ MonoBehaviour:
   damage: 30
   spawnSpeed: 3
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &8690415765667559143
 AudioSource:
@@ -601,6 +604,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2971aa5e8c54a4c3caa416aefc1b5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3111454825565230914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463975899202615421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86be52fd19c974e24a8ca33ffb8b5306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 4648609287420171916}
+  rotationOffset: 180
 --- !u!1 &621311387498131454
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,6 +993,8 @@ MonoBehaviour:
   damage: 10
   spawnSpeed: 4
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &7673165145508259888
 AudioSource:
@@ -1699,6 +1718,8 @@ MonoBehaviour:
   damage: 50
   spawnSpeed: 10
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &4749191171460799819
 AudioSource:
@@ -2044,6 +2065,8 @@ MonoBehaviour:
   damage: 10
   spawnSpeed: 4
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &6033331849682773288
 AudioSource:
@@ -2683,6 +2706,8 @@ MonoBehaviour:
   damage: 50
   spawnSpeed: 10
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &7655311964037383070
 AudioSource:
@@ -3028,6 +3053,8 @@ MonoBehaviour:
   damage: 75
   spawnSpeed: 12
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &2446131761113868732
 AudioSource:
@@ -3527,6 +3554,7 @@ GameObject:
   - component: {fileID: 3893583458137427915}
   - component: {fileID: 5094538441228473519}
   - component: {fileID: 1426064035592638474}
+  - component: {fileID: 5445743454612879299}
   m_Layer: 7
   m_Name: BossSpawner (1)
   m_TagString: Untagged
@@ -3622,7 +3650,7 @@ MonoBehaviour:
   spawnInterval: 0.8
   clusterCooldown: 4
   spawnDirection: {x: 1, y: 0}
-  targetPlayer: 1
+  targetPlayer: 0
   enemySprite: {fileID: -6978477448049373393, guid: 3bd246b13ea424f868636c3de5d6912e, type: 3}
   angrySprite: {fileID: -6978477448049373393, guid: 3bd246b13ea424f868636c3de5d6912e, type: 3}
   enragedSprite: {fileID: -6978477448049373393, guid: 3bd246b13ea424f868636c3de5d6912e, type: 3}
@@ -3631,6 +3659,8 @@ MonoBehaviour:
   damage: 30
   spawnSpeed: 3
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &3302788977347029186
 AudioSource:
@@ -3855,6 +3885,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2971aa5e8c54a4c3caa416aefc1b5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5445743454612879299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160509641220947036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86be52fd19c974e24a8ca33ffb8b5306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 4648609287420171916}
+  rotationOffset: 180
 --- !u!1 &6855880056846075488
 GameObject:
   m_ObjectHideFlags: 0
@@ -4250,6 +4294,7 @@ GameObject:
   - component: {fileID: 705231011081170875}
   - component: {fileID: 9209036206290697199}
   - component: {fileID: 1549076982917161132}
+  - component: {fileID: 4970948577587158121}
   m_Layer: 7
   m_Name: BossSpawner
   m_TagString: Untagged
@@ -4345,7 +4390,7 @@ MonoBehaviour:
   spawnInterval: 0.8
   clusterCooldown: 4
   spawnDirection: {x: 1, y: 0}
-  targetPlayer: 1
+  targetPlayer: 0
   enemySprite: {fileID: -6978477448049373393, guid: 3bd246b13ea424f868636c3de5d6912e, type: 3}
   angrySprite: {fileID: -6978477448049373393, guid: 3bd246b13ea424f868636c3de5d6912e, type: 3}
   enragedSprite: {fileID: -6978477448049373393, guid: 3bd246b13ea424f868636c3de5d6912e, type: 3}
@@ -4354,6 +4399,8 @@ MonoBehaviour:
   damage: 30
   spawnSpeed: 3
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &7387692067209297171
 AudioSource:
@@ -4578,6 +4625,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2971aa5e8c54a4c3caa416aefc1b5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4970948577587158121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7840717387043204305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86be52fd19c974e24a8ca33ffb8b5306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 4648609287420171916}
+  rotationOffset: 180
 --- !u!1 &7908745777078580514
 GameObject:
   m_ObjectHideFlags: 0
@@ -4889,6 +4950,8 @@ MonoBehaviour:
   damage: 10
   spawnSpeed: 4
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &2717982033286809477
 AudioSource:
@@ -5248,6 +5311,8 @@ MonoBehaviour:
   damage: 75
   spawnSpeed: 12
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &7124731246507534507
 AudioSource:
