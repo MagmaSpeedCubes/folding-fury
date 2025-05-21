@@ -25,6 +25,10 @@ public class BossSpawner : MonoBehaviour
 
     [SerializeField] private float enemyLoot = 0f;
     
+
+    [SerializeField] private float healthDelay = 1f;
+    [SerializeField] private GameObject mainSpawner;
+    
     public bool active = false;
 
 
@@ -33,13 +37,31 @@ public class BossSpawner : MonoBehaviour
 
     private Coroutine spawnCoroutine; // Tracks the currently running SpawnClusters coroutine
 
+    void Activate(){
+        bool canActivate = false;
+        if(healthDelay < 1 && mainSpawner != null){
+            SpawnerEnemyHealth mainHealth = mainSpawner.GetComponent<SpawnerEnemyHealth>();
+            if(mainHealth != null){
+                float healthPercentage = mainHealth.currentHealth / mainHealth.maxHealth;
+                if(healthPercentage < healthDelay){canActivate = true;}
+            }
+        }else{
+            canActivate = true;
+        }
+
+        if(canActivate){
+            spawnCoroutine = StartCoroutine(SpawnClusters());
+        }
+        
+    }
+
     void Update()
     {
         
         TargetPlayer();
         if (active && !isSpawning)
         {
-            spawnCoroutine = StartCoroutine(SpawnClusters());
+            Activate();
         }
 
 
@@ -106,7 +128,7 @@ public class BossSpawner : MonoBehaviour
         else
         {
             // Always spawn enemies downwards
-            spawnDirection = Vector3.down; // World space downward direction
+            spawnDirection = -transform.up;
         }
 
         // Calculate the spawn position with an offset in the spawning direction
