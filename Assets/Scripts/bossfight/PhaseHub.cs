@@ -5,6 +5,7 @@ public class PhaseHub : MonoBehaviour
     [SerializeField] private GameObject bossFight;
     [SerializeField] private List<GameObject> phaseSpawners;
     [SerializeField] private float phaseLength;
+    [SerializeField] private bool activateDialogue = false;
 
     public float tick;
 
@@ -24,6 +25,9 @@ public class PhaseHub : MonoBehaviour
         if (phaseSpawners.Count == 0 && active)
         {
             active = false;
+            if(activateDialogue){
+                LevelDialogue.NextLine();
+            }
             StartCoroutine(bossFightScript.StartNextPhase());
         }
 

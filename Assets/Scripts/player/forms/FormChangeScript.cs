@@ -63,7 +63,7 @@ public class FormChangeScript : MonoBehaviour
             }else if (Input.GetKey("8")){
                 StartCoroutine(ChangeToCrane());
                 canFormChange = false;
-            }else if (Input.GetKey("9")){
+            }else if (Input.GetKey("9") && !GameInfo.BossFight){
                 StartCoroutine(ChangeToFortuneTeller());
                 canFormChange = false;
             }
