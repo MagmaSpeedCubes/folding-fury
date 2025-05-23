@@ -75,6 +75,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
         if (killedByPlayer)
         {
+            
             if(!Achievements.GetAchievement(1)){
                 Achievements.UnlockAchievement(1);
             }

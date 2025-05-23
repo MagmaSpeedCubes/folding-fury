@@ -6,7 +6,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem
 {
-    public static bool IsDataLoaded = false;
     public static void SaveData()
     {
         SaveInfo data = new SaveInfo
@@ -39,14 +38,12 @@ public static class SaveSystem
             AvatarInfo.Books = data.Books;
             AvatarInfo.Cards = data.Cards;
             AvatarInfo.SFXVolume = data.SFXVolume;
-            Debug.Log("Stored music volume:"+data.MusicVolume);
             AvatarInfo.MusicVolume = data.MusicVolume;
             AvatarInfo.Upgrades = data.Upgrades;
             AvatarInfo.Achievements = data.Achievements;
             AvatarInfo.HighScores = SaveInfo.loadAnArrayFromString(data.HighScores);
             AvatarInfo.ReversedHighScores = SaveInfo.loadAnArrayFromString(data.ReversedHighScores);
             Debug.Log("Save successfully loaded");
-            IsDataLoaded = true;
             return true;
         }
         else
