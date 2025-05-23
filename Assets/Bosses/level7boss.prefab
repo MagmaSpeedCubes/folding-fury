@@ -4043,7 +4043,7 @@ MonoBehaviour:
   spawnInterval: 0.8
   clusterCooldown: 4
   spawnDirection: {x: 1, y: 0}
-  targetPlayer: 0
+  targetPlayer: 1
   enemySprite: {fileID: -6978477448049373393, guid: 3bd246b13ea424f868636c3de5d6912e, type: 3}
   angrySprite: {fileID: -6978477448049373393, guid: 3bd246b13ea424f868636c3de5d6912e, type: 3}
   enragedSprite: {fileID: -6978477448049373393, guid: 3bd246b13ea424f868636c3de5d6912e, type: 3}
@@ -4390,7 +4390,7 @@ MonoBehaviour:
   spawnInterval: 0.8
   clusterCooldown: 4
   spawnDirection: {x: 1, y: 0}
-  targetPlayer: 0
+  targetPlayer: 1
   enemySprite: {fileID: -6978477448049373393, guid: 3bd246b13ea424f868636c3de5d6912e, type: 3}
   angrySprite: {fileID: -6978477448049373393, guid: 3bd246b13ea424f868636c3de5d6912e, type: 3}
   enragedSprite: {fileID: -6978477448049373393, guid: 3bd246b13ea424f868636c3de5d6912e, type: 3}
@@ -5304,7 +5304,7 @@ MonoBehaviour:
   spawnInterval: 0.8
   clusterCooldown: 4
   spawnDirection: {x: 1, y: 0}
-  targetPlayer: 0
+  targetPlayer: 1
   enemySprite: {fileID: -6978477448049373393, guid: 3bd246b13ea424f868636c3de5d6912e, type: 3}
   angrySprite: {fileID: -6978477448049373393, guid: 3bd246b13ea424f868636c3de5d6912e, type: 3}
   enragedSprite: {fileID: -6978477448049373393, guid: 3bd246b13ea424f868636c3de5d6912e, type: 3}
