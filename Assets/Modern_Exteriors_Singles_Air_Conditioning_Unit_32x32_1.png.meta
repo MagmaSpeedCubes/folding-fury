@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Modern_Exteriors_Singles_Air_Conditioning_Unit_32x32_1_0: -7015635937172142050
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hole-puncher_0: 7550461656854932963
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

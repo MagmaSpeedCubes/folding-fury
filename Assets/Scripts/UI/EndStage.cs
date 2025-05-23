@@ -101,7 +101,7 @@ public class EndStage : MonoBehaviour
 
         Instance.fscoreText.text += GameInfo.Score;
 
-        
+        SaveSystem.SaveData();
 
 
 

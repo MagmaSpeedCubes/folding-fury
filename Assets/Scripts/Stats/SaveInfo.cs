@@ -7,12 +7,12 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using UnityEngine;
 [System.Serializable]
+
 public class SaveInfo
 {
     public int Paperclips;
     public int Books;
     public int Cards;
-    
 
     public float SFXVolume;
     public float MusicVolume;
@@ -22,31 +22,33 @@ public class SaveInfo
 
     public int[] Upgrades;
 
-    public bool [] Achievements;
+    public bool[] Achievements;
 
+    // Default constructor (empty)
+    public SaveInfo() { }
 
+    // Constructor to explicitly pass data
+    public SaveInfo(
+        int paperclips, int books, int cards,
+        float sfxVolume, float musicVolume,
+        int[] upgrades, bool[] achievements,
+        string highScores, string reversedHighScores)
+    {
+        Paperclips = paperclips;
+        Books = books;
+        Cards = cards;
 
-    public SaveInfo(){
-        Paperclips = AvatarInfo.Paperclips;
-        Books = AvatarInfo.Books;
-        Cards = AvatarInfo.Cards;
+        SFXVolume = sfxVolume;
+        MusicVolume = musicVolume;
 
-        SFXVolume = AvatarInfo.SFXVolume;
-        MusicVolume = AvatarInfo.MusicVolume;
+        Upgrades = upgrades;
+        Achievements = achievements;
 
-        Upgrades = AvatarInfo.Upgrades;
-
-        Achievements = AvatarInfo.Achievements;
-
-        HighScores = SaveInfo.generateAStringFromAnArray(AvatarInfo.HighScores);
-        ReversedHighScores = SaveInfo.generateAStringFromAnArray(AvatarInfo.ReversedHighScores);
-
-
-
-
+        HighScores = highScores;
+        ReversedHighScores = reversedHighScores;
     }
 
-    public static void CopyStream(Stream input, Stream output)
+        public static void CopyStream(Stream input, Stream output)
     // Helper funtion to copy from one stream to another
     {
         // Magic number is 2^16
@@ -93,16 +95,24 @@ public class SaveInfo
     public static string generateAStringFromAnArray(int[][] arrayWeWantToSave)
     {
         string s = "";
+        if(SaveSystem.DataLoaded){
+            
 
 
-        BinaryFormatter bf = new BinaryFormatter();
-        MemoryStream ms = new MemoryStream();
-        bf.Serialize(ms, arrayWeWantToSave);
-        
-        s = Convert.ToBase64String(ms.ToArray());
-        s = Compress(s);
-        Debug.Log("Successfully stored high scores");
+            BinaryFormatter bf = new BinaryFormatter();
+            MemoryStream ms = new MemoryStream();
+            bf.Serialize(ms, arrayWeWantToSave);
+            
+            s = Convert.ToBase64String(ms.ToArray());
+            s = Compress(s);
+            Debug.Log("Successfully stored high scores");
+            return s;
+        }else{
+            Debug.Log("Failed to save, data is not loaded");
+            
+        }
         return s;
+
     }
 
     public static int[][] loadAnArrayFromString(string s)
@@ -119,6 +129,8 @@ public class SaveInfo
     }
     
 }
+
+
 
 
 

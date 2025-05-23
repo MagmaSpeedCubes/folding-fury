@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 public class ScrollbarScript : MonoBehaviour
 {
@@ -13,28 +12,13 @@ public class ScrollbarScript : MonoBehaviour
     {
         if (scrollbar != null)
         {
-            // Start a coroutine to wait for data to load before initializing the scrollbar
-            StartCoroutine(InitializeScrollbar());
+            // Initialize the scrollbar value based on the current stat value
+            float currentStatValue = GetStatValue(statName);
+            scrollbar.value = Mathf.InverseLerp(minValue, maxValue, currentStatValue);
+
+            // Add a listener to handle scrollbar value changes
+            scrollbar.onValueChanged.AddListener(OnScrollbarValueChanged);
         }
-    }
-
-    private IEnumerator InitializeScrollbar()
-    {
-        // Wait until the data is loaded (replace with your actual loading condition)
-        while (!SaveSystem.IsDataLoaded) // Replace with your actual data loading flag
-        {
-            yield return null; // Wait for the next frame
-        }
-
-        // Temporarily remove the listener to prevent triggering OnScrollbarValueChanged
-        scrollbar.onValueChanged.RemoveListener(OnScrollbarValueChanged);
-
-        // Initialize the scrollbar value based on the current stat value
-        float currentStatValue = GetStatValue(statName);
-        scrollbar.value = Mathf.InverseLerp(minValue, maxValue, currentStatValue);
-
-        // Re-add the listener after initialization
-        scrollbar.onValueChanged.AddListener(OnScrollbarValueChanged);
     }
 
     public void OnScrollbarValueChanged(float value)
@@ -51,7 +35,6 @@ public class ScrollbarScript : MonoBehaviour
         var field = typeof(AvatarInfo).GetField(statName);
         if (field != null)
         {
-            Debug.Log("Retrieved value: " + field.GetValue(null));
             return (float)field.GetValue(null); // Assuming AvatarInfo fields are static
         }
         else
@@ -67,8 +50,6 @@ public class ScrollbarScript : MonoBehaviour
         if (field != null)
         {
             field.SetValue(null, statValue);
-            SaveSystem.SaveData();
-            Debug.Log("Successfully updated value: " + statValue);
         }
         else
         {
