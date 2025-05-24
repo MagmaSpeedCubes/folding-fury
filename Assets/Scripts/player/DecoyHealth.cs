@@ -33,7 +33,7 @@ public class DecoyHealth : MonoBehaviour
         }
         PlayDamageSound();
     }
-    private void Die(){
+    public void Die(){
         GameInfo.decoy = null;
         PlayDeathSound();
         Destroy(gameObject);

@@ -36,6 +36,7 @@ public class ScrollbarScript : MonoBehaviour
         if (field != null)
         {
             return (float)field.GetValue(null); // Assuming AvatarInfo fields are static
+            
         }
         else
         {
@@ -50,6 +51,7 @@ public class ScrollbarScript : MonoBehaviour
         if (field != null)
         {
             field.SetValue(null, statValue);
+            SaveSystem.SaveData();
         }
         else
         {

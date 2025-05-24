@@ -11,5 +11,11 @@ public class RemoveEnemyWall : MonoBehaviour
             Debug.Log("Enemy Touched Wall");
             
         }
+        DecoyHealth dh = collision.GetComponent<DecoyHealth>();
+        if(dh != null){
+            dh.Die();
+            Debug.Log("Removed decoy off screen");
+            
+        }
     }
 }
