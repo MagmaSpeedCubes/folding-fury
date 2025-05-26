@@ -5,6 +5,7 @@ public class PhaseHub : MonoBehaviour
     [SerializeField] private GameObject bossFight;
     [SerializeField] private List<GameObject> phaseSpawners;
     [SerializeField] private float phaseLength;
+    [SerializeField] private bool playDialogue;
 
     public float tick;
 

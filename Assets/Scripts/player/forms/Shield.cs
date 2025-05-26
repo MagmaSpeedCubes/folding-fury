@@ -6,7 +6,7 @@ public class Shield
         PlayerInfo.Reset();
         PlayerInfo.Form = "Shield";
 
-        PlayerInfo.RegenRate *= 1.2f;
+        PlayerInfo.RegenRate *= 0f;
         PlayerInfo.Size *= 1f;
         PlayerInfo.FoldTime *= 0.5f;
 
@@ -19,7 +19,7 @@ public class Shield
         PlayerInfo.MovementSpeed *= 0.6f;
         PlayerInfo.InkResistance *= 0f;
         PlayerInfo.KnifeResistance *= 9f;
-        PlayerInfo.Resistance *= 7f;
+        PlayerInfo.Resistance *= 8.5f;
 
         Mods.Reactivate();
     }

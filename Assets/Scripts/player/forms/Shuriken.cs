@@ -10,6 +10,8 @@ public class Shuriken
         PlayerInfo.Size *= 1f;
         PlayerInfo.FoldTime *= 2f;
 
+        PlayerInfo.MaxHealth *= 0.75f;
+
         PlayerInfo.AttackAngle *= 4f;
         PlayerInfo.AttackDamage *= 2f;
         PlayerInfo.AttackRange *= 2f;

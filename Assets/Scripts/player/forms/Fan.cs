@@ -13,8 +13,8 @@ public class Fan
         PlayerInfo.AttackAngle *= 2f;
         PlayerInfo.AttackDamage *= 0.01f;
         PlayerInfo.AttackRange *= 2f;
-        PlayerInfo.AttackRate *= 4f;
-        PlayerInfo.Knockback *= 3f;
+        PlayerInfo.AttackRate *= 6f;
+        PlayerInfo.Knockback *= 5f;
 
         PlayerInfo.MovementSpeed *= 1f;
         PlayerInfo.InkResistance *= 4f;

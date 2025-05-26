@@ -28,6 +28,9 @@ public class PlayerHealth : MonoBehaviour
         PlayerInfo.CurrentHealth = PlayerInfo.StartHealth;
     }
     public void Damage(float damageAmount, string attackType){
+        if(attackType == "Hazard" && PlayerInfo.Form == "Shield"){
+            return;
+        }
         float damageMultiplier = 1-PlayerInfo.Resistance;
         damageAmount *= damageMultiplier;
         if(PlayerInfo.Absorption >= damageAmount){

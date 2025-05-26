@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class LootBag : MonoBehaviour
 {
     public GameObject droppedItemPrefab;
-    private float multiplier = GameInfo.LootMultiplier;
     public float localLootMultiplier;
     public List<Loot> lootList = new List<Loot>();
 
@@ -14,8 +13,10 @@ public class LootBag : MonoBehaviour
         List<Loot> possibleItems = new List<Loot>();
 
         foreach (Loot item in lootList)
-        {
-            float adjustedDropChance = item.dropChance * multiplier * localLootMultiplier * PlayerInfo.PlayerLuck; // Adjust drop chance by multiplier
+        {   
+
+            float adjustedDropChance = (item.dropChance * GameInfo.LootMultiplier * localLootMultiplier * PlayerInfo.PlayerLuck); // Adjust drop chance by GameInfo.LootMultiplier
+            
 
             // Add guaranteed drops for every 100 in adjustedDropChance
             while (adjustedDropChance >= 100)
@@ -56,9 +57,15 @@ public class LootBag : MonoBehaviour
                 // Add drag to slow down the loot over time
                 rb.linearDamping = 2f; // Adjust this value as needed
             }
+            Debug.Log(100 * GameInfo.LootMultiplier * localLootMultiplier * PlayerInfo.PlayerLuck);
+            Debug.Log($"LootMultiplier: {GameInfo.LootMultiplier}, localLootMultiplier: {localLootMultiplier}, PlayerLuck: {PlayerInfo.PlayerLuck}");
+            Debug.Log(100 * GameInfo.LootMultiplier * localLootMultiplier * PlayerInfo.PlayerLuck);
+            
+            GameInfo.Score += 100 * GameInfo.LootMultiplier * localLootMultiplier * PlayerInfo.PlayerLuck;
+    }
+
         }
         
-        GameInfo.Score += 100 * multiplier * localLootMultiplier * PlayerInfo.PlayerLuck;
-    }
+        
 
 }

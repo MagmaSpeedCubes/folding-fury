@@ -11,12 +11,12 @@ public class Sword
         PlayerInfo.FoldTime *= 2f;
 
         PlayerInfo.AttackAngle *= 1.5f;
-        PlayerInfo.AttackDamage *= 4f;
+        PlayerInfo.AttackDamage *= 6f;
         PlayerInfo.AttackRange *= 3f;
         PlayerInfo.AttackRate *= 1.5f;
         PlayerInfo.Knockback *= 0.1f;
 
-        PlayerInfo.MovementSpeed *= 1f;
+        PlayerInfo.MovementSpeed *= 0.8f;
         PlayerInfo.InkResistance *= 1f;
         PlayerInfo.KnifeResistance *= 5f;
         PlayerInfo.Resistance *= 1f;
