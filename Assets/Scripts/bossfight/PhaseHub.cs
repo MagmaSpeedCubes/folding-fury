@@ -1,20 +1,29 @@
+using System;
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+
 public class PhaseHub : MonoBehaviour
 {
     [SerializeField] private GameObject bossFight;
     [SerializeField] private List<GameObject> phaseSpawners;
     [SerializeField] private float phaseLength;
     [SerializeField] private bool playDialogue;
-
+    [SerializeField] private Canvas dialogueCanvas;
+    private Dialogue dialogue;
     public float tick;
 
     private BossFight bossFightScript;
     private bool active;
 
     void Start(){
+        
         active = false;
         bossFightScript = bossFight.GetComponent<BossFight>();
+        if(dialogueCanvas != null){
+            dialogue = dialogueCanvas.GetComponent<Dialogue>();
+        }
     }
 
     void Update(){
@@ -32,12 +41,19 @@ public class PhaseHub : MonoBehaviour
 
     public void ActivatePhase(){
         active = true;
-
+        if(playDialogue){
+            StartCoroutine(ShowNextLineWrapper());
+        }
         for(int i=0; i<phaseSpawners.Count; i++){
             BossSpawner bossSpawner = phaseSpawners[i].GetComponent<BossSpawner>();
             bossSpawner.active = true;
         }
 
+    }
+
+    private IEnumerator ShowNextLineWrapper()
+    {
+        yield return StartCoroutine(dialogue.ShowNextLine());
     }
 
 }

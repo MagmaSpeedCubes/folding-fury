@@ -91,7 +91,7 @@ public class Dialogue : MonoBehaviour
         // Play the audio for the line
         audio.volume = AvatarInfo.SFXVolume * volume;
         audio.clip = sounds[index];
-        audio.Play();
+        audio.PlayOneShot(sounds[index], AvatarInfo.SFXVolume * volume);
         Debug.Log("Audio Played");
 
         // Reveal the text over time

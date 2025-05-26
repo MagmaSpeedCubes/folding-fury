@@ -122,6 +122,8 @@ MonoBehaviour:
   damage: 15
   spawnSpeed: 5
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &6522131919473026208
 AudioSource:
@@ -479,6 +481,8 @@ MonoBehaviour:
   damage: 10
   spawnSpeed: 10
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &4639240761104199521
 AudioSource:
@@ -1014,6 +1018,8 @@ MonoBehaviour:
   damage: 15
   spawnSpeed: 5
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &5843591283720222373
 AudioSource:
@@ -1282,6 +1288,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8552745063161415113}
+  - {fileID: 6796006767824356579}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3130649536529758696
@@ -1691,6 +1698,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d23c83ea9e7d147a195de298d4e604b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7460757084043753522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6796006767824356579}
+  - component: {fileID: 3425843745925795543}
+  - component: {fileID: 4020455499084048831}
+  m_Layer: 7
+  m_Name: DialogueEmptyPhase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6796006767824356579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460757084043753522}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9042331422363754650}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3425843745925795543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460757084043753522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 963480838825749f09ff1f49239eae4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossFight: {fileID: 5691082091476782441}
+  phaseSpawners: []
+  phaseLength: 0
+  playDialogue: 1
+  dialogueCanvas: {fileID: 0}
+  tick: 0
+--- !u!114 &4020455499084048831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460757084043753522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2971aa5e8c54a4c3caa416aefc1b5a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8500360947045640657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1745,6 +1815,8 @@ MonoBehaviour:
   - {fileID: 5216747897707963435}
   - {fileID: 3101246758877674157}
   phaseLength: 0
+  playDialogue: 0
+  dialogueCanvas: {fileID: 0}
   tick: 0
 --- !u!114 &7799449574580837394
 MonoBehaviour:

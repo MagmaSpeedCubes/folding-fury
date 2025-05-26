@@ -33,19 +33,17 @@ public class EndStage : MonoBehaviour
 
 
 
-    public static void CompleteStage(bool win){
-        
+    public static IEnumerator CompleteStageI(bool win)
+    {
+        float delay = 0.7f; // seconds between each text appearing
+
         Timer.Reset();
-
         GameInfo.BossFight = false;
-
         Debug.Log("Level: "+GameInfo.GameMode);
         int level = GameInfo.GameMode;
-        
         GameInfo.GameMode = -4;
         CameraMoveUp.inLevel = false;
         int oldHighScore = getCurrentScore(level, PlayerInfo.Modifier);
-        
         int mod = PlayerInfo.Modifier;
 
         if(win){
@@ -58,67 +56,47 @@ public class EndStage : MonoBehaviour
             Instance.mainText.text = "Game Over";
         }
 
-        
-        
+        yield return new WaitForSeconds(delay);
 
         Instance.iscoreText.text = "Score: " + GameInfo.Score;
-
+        yield return new WaitForSeconds(delay);
 
         int enemyBonus = (int) Math.Pow(GameInfo.EnemiesKilled, 2) / 10;
         GameInfo.Score += enemyBonus;
         Instance.enemyText.text = "Enemies Killed: " + GameInfo.EnemiesKilled + "/" + GameInfo.EnemiesSpawned + " +" + enemyBonus;
         Instance.fscoreText.text = "Score: " + GameInfo.Score;
+        yield return new WaitForSeconds(delay);
 
         int damageBonus = (int) Math.Max(5000 - Math.Pow(GameInfo.DamageTaken, 2), 0);
         GameInfo.Score += damageBonus;
         Instance.damageText.text = "Damage Taken: " + GameInfo.DamageTaken + " +" + damageBonus;
         Instance.fscoreText.text = "Score: " + GameInfo.Score;
+        yield return new WaitForSeconds(delay);
 
         int diamondBonus = (int) Math.Pow(GameInfo.DiamondsCollected, 2) * 50;
         GameInfo.Score += diamondBonus;
         Instance.diamondText.text = "Diamonds Collected: " + GameInfo.DiamondsCollected + " /10 +" + diamondBonus;
         Instance.fscoreText.text = "Score: " + GameInfo.Score;
+        yield return new WaitForSeconds(delay);
 
         int multiplier = 1;
         for(int i=0; i<GameInfo.NumModifiers; i++){
             multiplier += getModBadges(i+1);
         }
-
         GameInfo.Score *= multiplier;
         Instance.badgesText.text = "Badge Multiplier x" + multiplier;
         Instance.fscoreText.text = "Score: " + GameInfo.Score;
+        yield return new WaitForSeconds(delay);
 
-
-        
         if(GameInfo.Score > oldHighScore && win){
             Instance.fscoreText.text = "New Record: ";
             saveRecord(level, mod, (int)GameInfo.Score);
-            //high scores are only saved on victory
-
         }else{
             Instance.fscoreText.text = "Final Score: ";
         }
-
         Instance.fscoreText.text += GameInfo.Score;
 
         SaveSystem.SaveData();
-
-
-
-        
-
-
-
-        
-        //add delay later
-
-        //summary
-        //diamonds collected,more = bonus pts
-        //enemies killed,more = bonus pts
-        //damage taken,less = bonus pts
-        //
-
-        
     }
 
     public static int getCurrentScore(int level, int modifier) {
@@ -143,10 +121,14 @@ public class EndStage : MonoBehaviour
         }
 
         if (scoreArray.Length <= Math.Abs(modifier)) {
-            Debug.LogError($"Modifier {modifier} is out of bounds for level {level}");
+            Debug.LogError($"Modifier {modifier} is ouelayt of bounds for level {level}");
             return 0; // Default score
         }
         return scoreArray[Math.Abs(modifier)];
+    }
+    
+    public static void CompleteStage(bool win){
+        Instance.StartCoroutine(CompleteStageI(win));
     }
 
     public static void saveRecord(int level, int modifier, int score){

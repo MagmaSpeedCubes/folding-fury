@@ -25,7 +25,7 @@ public class LevelDialogue : MonoBehaviour
 
         if(!active && GameInfo.GameMode == level){
             active = true;
-            dialogue.SetIndexFromLevel();
+            dialogue.SetIndex(startingIndex);
         }
         if(active && dialogueTimes.Length > index && Timer.GetTime()>= dialogueTimes[index]){
             StartCoroutine(ShowNextLineWrapper());
