@@ -9,7 +9,8 @@ public class PhaseHub : MonoBehaviour
     [SerializeField] private GameObject bossFight;
     [SerializeField] private List<GameObject> phaseSpawners;
     [SerializeField] private float phaseLength;
-    [SerializeField] private bool playDialogue;
+    [SerializeField] private bool playDialogueOnEnter = false;
+    [SerializeField] private bool playDialogueOnExit = false;
     [SerializeField] private Canvas dialogueCanvas;
     private Dialogue dialogue;
     public float tick;
@@ -18,12 +19,20 @@ public class PhaseHub : MonoBehaviour
     private bool active;
 
     void Start(){
-        
+        if (dialogueCanvas == null)
+        {
+            Dialogue foundDialogue = FindObjectOfType<Dialogue>();
+            if (foundDialogue != null)
+            {
+                dialogue = foundDialogue;
+                
+            }
+        }
+
+
         active = false;
         bossFightScript = bossFight.GetComponent<BossFight>();
-        if(dialogueCanvas != null){
-            dialogue = dialogueCanvas.GetComponent<Dialogue>();
-        }
+
     }
 
     void Update(){
@@ -34,6 +43,9 @@ public class PhaseHub : MonoBehaviour
         if (phaseSpawners.Count == 0 && active)
         {
             active = false;
+            if(playDialogueOnExit && dialogue != null){
+                StartCoroutine(ShowNextLineWrapper());
+            }
             StartCoroutine(bossFightScript.StartNextPhase());
         }
 
@@ -41,7 +53,7 @@ public class PhaseHub : MonoBehaviour
 
     public void ActivatePhase(){
         active = true;
-        if(playDialogue){
+        if(playDialogueOnEnter && dialogue != null){
             StartCoroutine(ShowNextLineWrapper());
         }
         for(int i=0; i<phaseSpawners.Count; i++){

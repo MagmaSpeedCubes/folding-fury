@@ -60,6 +60,9 @@ MonoBehaviour:
   - {fileID: 4728045237971713756}
   - {fileID: 8289138896492926727}
   phaseLength: 0
+  playDialogueOnEnter: 0
+  playDialogueOnExit: 0
+  dialogueCanvas: {fileID: 0}
   tick: 0
 --- !u!114 &3913452760764886308
 MonoBehaviour:
@@ -692,6 +695,9 @@ MonoBehaviour:
   - {fileID: 5452997818977061954}
   - {fileID: 1709014746160779191}
   phaseLength: 0
+  playDialogueOnEnter: 0
+  playDialogueOnExit: 1
+  dialogueCanvas: {fileID: 0}
   tick: 0
 --- !u!114 &3416399353920578642
 MonoBehaviour:
@@ -826,6 +832,8 @@ MonoBehaviour:
   damage: 10
   spawnSpeed: 4
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &3116448052441167822
 AudioSource:
@@ -1360,6 +1368,8 @@ MonoBehaviour:
   damage: 50
   spawnSpeed: 10
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &4749191171460799819
 AudioSource:
@@ -1894,6 +1904,8 @@ MonoBehaviour:
   damage: 10
   spawnSpeed: 4
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &8806978444280340905
 AudioSource:
@@ -2239,6 +2251,8 @@ MonoBehaviour:
   damage: 10
   spawnSpeed: 4
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &1302088665490585456
 AudioSource:
@@ -2773,6 +2787,8 @@ MonoBehaviour:
   damage: 10
   spawnSpeed: 4
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &2557705253710548134
 AudioSource:
@@ -3874,6 +3890,8 @@ MonoBehaviour:
   damage: 10
   spawnSpeed: 4
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &7546587290907535316
 AudioSource:
@@ -4219,6 +4237,8 @@ MonoBehaviour:
   damage: 50
   spawnSpeed: 10
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &7655311964037383070
 AudioSource:
@@ -4564,6 +4584,8 @@ MonoBehaviour:
   damage: 30
   spawnSpeed: 3
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &7757390006734411555
 AudioSource:
@@ -4909,6 +4931,8 @@ MonoBehaviour:
   damage: 10
   spawnSpeed: 4
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &7931105241538940792
 AudioSource:
@@ -5386,6 +5410,9 @@ MonoBehaviour:
   - {fileID: 1131625877495644850}
   - {fileID: 3351340753518538384}
   phaseLength: 0
+  playDialogueOnEnter: 1
+  playDialogueOnExit: 0
+  dialogueCanvas: {fileID: 0}
   tick: 0
 --- !u!114 &669793053153244682
 MonoBehaviour:
@@ -5520,6 +5547,8 @@ MonoBehaviour:
   damage: 10
   spawnSpeed: 4
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &9054482272497388926
 AudioSource:
@@ -6243,6 +6272,8 @@ MonoBehaviour:
   damage: 10
   spawnSpeed: 4
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &7046937462456447828
 AudioSource:
@@ -6588,6 +6619,8 @@ MonoBehaviour:
   damage: 10
   spawnSpeed: 4
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &5045811072337334207
 AudioSource:
@@ -6933,6 +6966,8 @@ MonoBehaviour:
   damage: 30
   spawnSpeed: 3
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &7387692067209297171
 AudioSource:
@@ -7656,6 +7691,8 @@ MonoBehaviour:
   damage: 10
   spawnSpeed: 4
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &7032525018457248867
 AudioSource:
@@ -8001,6 +8038,8 @@ MonoBehaviour:
   damage: 10
   spawnSpeed: 4
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &2717982033286809477
 AudioSource:
@@ -8346,6 +8385,8 @@ MonoBehaviour:
   damage: 10
   spawnSpeed: 4
   enemyLoot: 0
+  healthDelay: 1
+  mainSpawner: {fileID: 0}
   active: 0
 --- !u!82 &4042419596809952564
 AudioSource:

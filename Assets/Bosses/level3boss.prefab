@@ -54,6 +54,9 @@ MonoBehaviour:
   - {fileID: 1709014746160779191}
   - {fileID: 8610290013254892851}
   phaseLength: 0
+  playDialogueOnEnter: 0
+  playDialogueOnExit: 0
+  dialogueCanvas: {fileID: 0}
   tick: 0
 --- !u!114 &3913452760764886308
 MonoBehaviour:
@@ -670,6 +673,9 @@ MonoBehaviour:
   - {fileID: 6160509641220947036}
   - {fileID: 463975899202615421}
   phaseLength: 0
+  playDialogueOnEnter: 0
+  playDialogueOnExit: 1
+  dialogueCanvas: {fileID: 0}
   tick: 0
 --- !u!114 &3416399353920578642
 MonoBehaviour:
@@ -3524,6 +3530,9 @@ MonoBehaviour:
   - {fileID: 8628869903150321251}
   - {fileID: 5555642002399195681}
   phaseLength: 0
+  playDialogueOnEnter: 1
+  playDialogueOnExit: 0
+  dialogueCanvas: {fileID: 0}
   tick: 0
 --- !u!114 &669793053153244682
 MonoBehaviour:

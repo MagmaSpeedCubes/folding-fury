@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip lowHealth;
     public AudioClip death;
     public AudioClip hazard;
+    private bool debug = true;
 
     void Awake()
     {
@@ -28,6 +29,9 @@ public class PlayerHealth : MonoBehaviour
         PlayerInfo.CurrentHealth = PlayerInfo.StartHealth;
     }
     public void Damage(float damageAmount, string attackType){
+        if(debug){
+            return;
+        }
         if(attackType == "Hazard" && PlayerInfo.Form == "Shield"){
             return;
         }
