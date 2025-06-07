@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip lowHealth;
     public AudioClip death;
     public AudioClip hazard;
-    private bool debug = true;
+    private bool debug = false;// when debug active, player will not take damage
 
     void Awake()
     {

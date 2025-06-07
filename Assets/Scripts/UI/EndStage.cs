@@ -35,7 +35,7 @@ public class EndStage : MonoBehaviour
 
     public static IEnumerator CompleteStageI(bool win)
     {
-        float delay = 0.7f; // seconds between each text appearing
+        float delay = 0.15f; // seconds between each text appearing
 
         Timer.Reset();
         GameInfo.BossFight = false;
